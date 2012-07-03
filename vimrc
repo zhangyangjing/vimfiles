@@ -35,6 +35,7 @@ Bundle 'Pydiction'
 nnoremap <silent> <F2> :NERDTree<CR>
 nnoremap <silent> <F3> :TlistOpen<CR>
 map <C-A> ggVG
+map <F5> :!python %<CR>
 
 syntax on
 filetype on
