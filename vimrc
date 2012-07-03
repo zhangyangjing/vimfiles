@@ -19,6 +19,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'esukram/taglist.vim'
 Bundle 'python.vim'
+Bundle 'Pydiction'
 
 "
 " Brief help
