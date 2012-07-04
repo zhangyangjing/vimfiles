@@ -45,7 +45,7 @@ set fileencoding=utf-8
 set encoding=utf-8
 set tabstop=4
 set expandtab
-set cindent
+"set cindent
 set autoindent
 set smartindent
 set showmatch   " auto show { } when select one of two
