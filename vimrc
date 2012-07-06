@@ -44,6 +44,8 @@ se nu
 set fileencoding=utf-8
 set encoding=utf-8
 set tabstop=4
+autocmd FileType python setlocal et sta sw=4 sts=4  " set auto tab intent 4 for python
+set backspace=indent,eol,start  " set backup delete is tab type
 set expandtab
 "set cindent
 set autoindent
