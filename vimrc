@@ -1,3 +1,8 @@
+""""""""""""""""""
+"
+" Bundle Manage
+"
+""""""""""""""""""
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -32,7 +37,11 @@ Bundle 'vim-scripts/cscope.vim'
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 
-
+""""""""""""""""""
+"
+" Util
+"
+""""""""""""""""""
 nnoremap <silent> <F2> :NERDTree<CR>
 nnoremap <silent> <F3> :TlistOpen<CR>
 map <C-A> ggVG
