@@ -20,6 +20,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'esukram/taglist.vim'
 Bundle 'python.vim'
 Bundle 'Pydiction'
+Bundle 'vim-scripts/cscope.vim'
 
 "
 " Brief help
@@ -40,6 +41,8 @@ map <F5> :!python %<CR>
 syntax on
 filetype on
 filetype plugin on
+let mapleader=","
+let g:mapleader=","
 se nu
 set fileencoding=utf-8
 set encoding=utf-8
