@@ -1,4 +1,4 @@
-""""""""""""""""""
+"""""""""""""""""
 "
 " Bundle Manage
 "
@@ -42,24 +42,39 @@ Bundle 'vim-scripts/cscope.vim'
 " Util
 "
 """"""""""""""""""
+let mapleader=","
+let g:mapleader=","
+
 nnoremap <silent> <F2> :NERDTree<CR>
 nnoremap <silent> <F3> :TlistOpen<CR>
 map <C-A> ggVG
 map <F5> :!python %<CR>
+map tl :Tlist<CR>
+
+nmap <leader>j <C-W>j
+nmap <leader>k <C-W>k
+nmap <leader>h <C-W>h
+nmap <leader>l <C-W>l
+nmap <leader>mj <C-W>j<C-W>_
+nmap <leader>mk <C-W>k<C-W>_
+nmap <leader>mh <C-W>h<C-W>_
+nmap <leader>ml <C-W>l<C-W>_
+nmap <leader>mm <C-W>=
+
+map ss :source ~/.vimrc<CR>
+map evrc :e ~/.vimrc<cr>
+autocmd! bufwritepost .vimrc source ~/.vimrc
 
 syntax on
 filetype on
 filetype plugin on
-let mapleader=","
-let g:mapleader=","
-se nu
+se nu    " show line number`
 set fileencoding=utf-8
 set encoding=utf-8
 set tabstop=4
 autocmd FileType python setlocal et sta sw=4 sts=4  " set auto tab intent 4 for python
 set backspace=indent,eol,start  " set backup delete is tab type
 set expandtab
-"set cindent
 set autoindent
 set smartindent
 set showmatch   " auto show { } when select one of two
