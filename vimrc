@@ -47,28 +47,35 @@ let g:mapleader=","
 
 nnoremap <silent> <F2> :NERDTree<CR>
 nnoremap <silent> <F3> :TlistOpen<CR>
-map <C-A> ggVG
 map <F5> :!python %<CR>
 map tl :Tlist<CR>
+
+nmap <leader>a ggVG
 
 nmap <leader>j <C-W>j
 nmap <leader>k <C-W>k
 nmap <leader>h <C-W>h
 nmap <leader>l <C-W>l
-nmap <leader>mj <C-W>j<C-W>_
-nmap <leader>mk <C-W>k<C-W>_
-nmap <leader>mh <C-W>h<C-W>_
-nmap <leader>ml <C-W>l<C-W>_
-nmap <leader>mm <C-W>=
+nmap <leader>J <C-W>b
+nmap <leader>K <C-W>t
 
-map ss :source ~/.vimrc<CR>
-map evrc :e ~/.vimrc<cr>
+nmap <leader>m <C-W>_
+nmap <leader>nm <C-W>=
+
+nmap <leader>tj <C-W>J
+nmap <leader>tk <C-W>K
+nmap <leader>th <C-W>H
+nmap <leader>tl <C-W>L
+
+
+map <leader>ss :source ~/.vimrc<CR>
+map <leader>evrc :e ~/.vimrc<cr>
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 syntax on
 filetype on
 filetype plugin on
-se nu    " show line number`
+set nu    " show line number`
 set fileencoding=utf-8
 set encoding=utf-8
 set tabstop=4
