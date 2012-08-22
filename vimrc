@@ -5,7 +5,7 @@
 """"""""""""""""""
 syntax on
 filetype on
-filetype plugin on
+filetype plugin indent on
 set nu    " show line number`
 set fileencoding=utf-8
 set encoding=utf-8
@@ -16,6 +16,7 @@ set expandtab
 set autoindent
 set smartindent
 set showmatch   " auto show { } when select one of two
+set matchtime=2
 set incsearch   " hilight hit word when type in search key work
 set hlsearch    " hilight all matched word when searching(after type enter)
 set nobackup
@@ -23,7 +24,7 @@ set noswapfile
 colorscheme default
 set nocompatible
 
-let mapleader=","
+let g:mapleader=","
 
 nmap <leader>a ggVG
 
@@ -49,6 +50,49 @@ map <leader>ss :source ~/.vimrc<CR>
 map <leader>evrc :e ~/.vimrc<cr>
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
+"自动补全
+inoremap ( ()<ESC>i
+:inoremap ) <c-r>=ClosePair(')')<CR>
+:inoremap { {<CR>}<ESC>O
+:inoremap } <c-r>=ClosePair('}')<CR>
+:inoremap [ []<ESC>i
+:inoremap ] <c-r>=ClosePair(']')<CR>
+:inoremap " ""<ESC>i
+:inoremap ' ''<ESC>i
+function! ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return "\<Right>"
+    else
+        return a:char
+    endif
+endfunction
+set completeopt=longest,menu
+
+function! AutoLoadCTagsAndCScope()
+    let max = 6
+    let dir = './'
+    let i = 0
+    let break = 0
+    while isdirectory(dir) && i < max
+        if filereadable(dir . 'cscope.out') 
+            execute 'cs add ' . dir . 'cscope.out'
+            let break = 1
+        endif
+        if filereadable(dir . 'tags')
+            execute 'set tags =' . dir . 'tags'
+            let break = 1
+        endif
+        if break == 1
+            execute 'lcd ' . dir
+            break
+        endif
+        let dir = dir . '../'
+        let i = i + 1
+    endwhile
+endf
+nmap <F7> :call AutoLoadCTagsAndCScope()<CR>
+call AutoLoadCTagsAndCScope()
+
 """"""""""""""""""
 "
 " Plugins
@@ -58,6 +102,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 nmap <leader>tr :NERDTree<CR>
 
 " Tag List
+set tags=tags;
+set autochdir
 let Tlist_Ctag_Cmd="/usr/bin/ctags"
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
