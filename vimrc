@@ -9,11 +9,12 @@ filetype plugin indent on
 set nu    " show line number`
 set fileencoding=utf-8
 set encoding=utf-8
+set shiftwidth=4
 set tabstop=4
-autocmd FileType python setlocal et sta sw=4 sts=4  " set auto tab intent 4 for python
+set softtabstop=4
+set shiftwidth=4
 set backspace=indent,eol,start  " set backup delete is tab type
 set expandtab
-set autoindent
 set smartindent
 set showmatch   " auto show { } when select one of two
 set matchtime=2
@@ -21,14 +22,15 @@ set incsearch   " hilight hit word when type in search key work
 set hlsearch    " hilight all matched word when searching(after type enter)
 set nobackup
 set noswapfile
-colorscheme default
 set nocompatible
+set completeopt=longest,menu
+autocmd FileType c,ch,cpp,java setlocal cindent
 
 let g:mapleader=","
 
 nmap <leader>a ggVG
+nmap <leader>w :w<CR>
 
-nmap <leader>j <C-W>j
 nmap <leader>k <C-W>k
 nmap <leader>h <C-W>h
 nmap <leader>l <C-W>l
@@ -43,30 +45,40 @@ nmap <leader>tk <C-W>K
 nmap <leader>th <C-W>H
 nmap <leader>tl <C-W>L
 
+nmap <C-J> <C-F>
+nmap <C-K> <C-B>
+
 nmap <leader>g <C-]>
 nmap <leader>b <C-T>
 
 map <leader>ss :source ~/.vimrc<CR>
 map <leader>evrc :e ~/.vimrc<cr>
-autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! bufwritepost [_.]vimrc source ~/.vimrc
 
 "自动补全
-inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
-:inoremap { {<CR>}<ESC>O
-:inoremap } <c-r>=ClosePair('}')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<CR>
-:inoremap " ""<ESC>i
-:inoremap ' ''<ESC>i
-function! ClosePair(char)
-    if getline('.')[col('.') - 1] == a:char
-        return "\<Right>"
-    else
-        return a:char
-    endif
-endfunction
-set completeopt=longest,menu
+"inoremap ( ()<ESC>i
+"inoremap ) <c-r>=ClosePair(')')<CR>
+"inoremap { {<CR>}<ESC>O
+"inoremap } <c-r>=ClosePair('}')<CR>
+"inoremap [ []<ESC>i
+"inoremap ] <c-r>=ClosePair(']')<CR>
+"inoremap " ""<ESC>i
+"inoremap ' ''<ESC>i
+"function! ClosePair(char)
+"    if getline('.')[col('.') - 1] == a:char
+"        return "\<Right>"
+"    else
+"        return a:char
+"    endif
+"endfunction
+"
+"inoremap ( ()<ESC>i
+"inoremap ) <c-r>=ClosePair(')')<CR>
+"inoremap { {<CR>}<ESC>O
+"inoremap } <c-r>=ClosePair('}')<CR>
+"inoremap [ []<ESC>i
+"inoremap ] <c-r>=ClosePair(']')<CR>
+
 
 function! AutoLoadCTagsAndCScope()
     let max = 6
@@ -91,7 +103,7 @@ function! AutoLoadCTagsAndCScope()
     endwhile
 endf
 nmap <F7> :call AutoLoadCTagsAndCScope()<CR>
-call AutoLoadCTagsAndCScope()
+autocmd FileType c,ch,cp call AutoLoadCTagsAndCScope()
 
 """"""""""""""""""
 "
@@ -99,7 +111,7 @@ call AutoLoadCTagsAndCScope()
 "
 """"""""""""""""""
 " NERDTree
-nmap <leader>tr :NERDTree<CR>
+nmap tr :NERDTree<CR>
 
 " Tag List
 set tags=tags;
@@ -108,7 +120,7 @@ let Tlist_Ctag_Cmd="/usr/bin/ctags"
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Left_Window = 1
-nmap <leader>tl :Tlist<CR>
+nmap tl :Tlist<CR>
 
 " PyDictionary
 map <F5> :!python %<CR>
