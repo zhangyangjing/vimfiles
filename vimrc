@@ -21,6 +21,7 @@ set matchtime=2
 set incsearch   " hilight hit word when type in search key work
 set hlsearch    " hilight all matched word when searching(after type enter)
 set nobackup
+set nowrap
 set noswapfile
 set nocompatible
 set completeopt=longest,menu
@@ -28,31 +29,36 @@ autocmd FileType c,ch,cpp,java setlocal cindent
 
 let g:mapleader=","
 
-nmap <leader>a ggVG
-nmap <leader>w :w<CR>
+nnoremap <leader>a ggVG
+nnoremap <leader>w :w<CR>
+inoremap <leader>w <ESC>:w<CR>a
+inoremap <leader>s <ESC>:w<CR>
 
-nmap <leader>k <C-W>k
-nmap <leader>h <C-W>h
-nmap <leader>l <C-W>l
-nmap <leader>J <C-W>b
-nmap <leader>K <C-W>t
+noremap <leader>k <C-W>k
+noremap <leader>j <C-W>j
+noremap <leader>h <C-W>h
+noremap <leader>l <C-W>l
+noremap <leader>J <C-W>b
+noremap <leader>K <C-W>t
 
-nmap <leader>m <C-W>_
-nmap <leader>nm <C-W>=
+nnoremap <leader>vm <C-W>_
+nnoremap <leader>sm <C-W>\|
+nnoremap <leader>m <C-W>\|<C-W>_
+nnoremap <leader>nm <C-W>=
 
-nmap <leader>tj <C-W>J
-nmap <leader>tk <C-W>K
-nmap <leader>th <C-W>H
-nmap <leader>tl <C-W>L
+nnoremap <leader>tj <C-W>J
+nnoremap <leader>tk <C-W>K
+nnoremap <leader>th <C-W>H
+nnoremap <leader>tl <C-W>L
 
-nmap <C-J> <C-F>
-nmap <C-K> <C-B>
+nnoremap <C-J> <C-F>
+nnoremap <C-K> <C-B>
 
-nmap <leader>g <C-]>
-nmap <leader>b <C-T>
+nnoremap <leader>g <C-]>
+nnoremap <leader>b <C-T>
 
-map <leader>ss :source ~/.vimrc<CR>
-map <leader>evrc :e ~/.vimrc<cr>
+nnoremap <leader>ss :source ~/.vimrc<CR>
+nnoremap <leader>erc :new ~/.vimrc<cr>
 autocmd! bufwritepost [_.]vimrc source ~/.vimrc
 
 "自动补全
@@ -80,30 +86,31 @@ autocmd! bufwritepost [_.]vimrc source ~/.vimrc
 "inoremap ] <c-r>=ClosePair(']')<CR>
 
 
-function! AutoLoadCTagsAndCScope()
-    let max = 6
-    let dir = './'
-    let i = 0
-    let break = 0
-    while isdirectory(dir) && i < max
-        if filereadable(dir . 'cscope.out') 
-            execute 'cs add ' . dir . 'cscope.out'
-            let break = 1
-        endif
-        if filereadable(dir . 'tags')
-            execute 'set tags =' . dir . 'tags'
-            let break = 1
-        endif
-        if break == 1
-            execute 'lcd ' . dir
-            break
-        endif
-        let dir = dir . '../'
-        let i = i + 1
-    endwhile
-endf
-nmap <F7> :call AutoLoadCTagsAndCScope()<CR>
-autocmd FileType c,ch,cp call AutoLoadCTagsAndCScope()
+"function! AutoLoadCTagsAndCScope()
+"    let max = 6
+"    let dir = './'
+"    let i = 0
+"    let break = 0
+"    while isdirectory(dir) && i < max
+"        if filereadable(dir . 'cscope.out') 
+"            execute 'cs add ' . dir . 'cscope.out'
+"            echo 'cs add ' . dir . 'cscope.out'
+"            let break = 1
+"        endif
+"        if filereadable(dir . 'tags')
+"            execute 'set tags =' . dir . 'tags'
+"            let break = 1
+"        endif
+"        if break == 1
+"            execute 'lcd ' . dir
+"            break
+"        endif
+"        let dir = dir . '../'
+"        let i = i + 1
+"    endwhile
+"endf
+"nmap <F7> :call AutoLoadCTagsAndCScope()<CR>
+"autocmd FileType c,ch,cp call AutoLoadCTagsAndCScope()
 
 """"""""""""""""""
 "
@@ -114,9 +121,8 @@ autocmd FileType c,ch,cp call AutoLoadCTagsAndCScope()
 nmap tr :NERDTree<CR>
 
 " Tag List
-set tags=tags;
 set autochdir
-let Tlist_Ctag_Cmd="/usr/bin/ctags"
+"let Tlist_Ctag_Cmd="/usr/bin/ctags"
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Left_Window = 1
