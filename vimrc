@@ -3,6 +3,7 @@
 " Util
 "
 """"""""""""""""""
+colorscheme desert
 syntax on
 filetype on
 filetype plugin indent on
@@ -31,8 +32,8 @@ let g:mapleader=","
 
 nnoremap <leader>a ggVG
 nnoremap <leader>w :w<CR>
-inoremap <leader>w <ESC>:w<CR>a
-inoremap <leader>s <ESC>:w<CR>
+inoremap <leader>w <ESC>:w<CR>
+inoremap <leader>e <ESC>
 
 noremap <leader>k <C-W>k
 noremap <leader>j <C-W>j
@@ -54,12 +55,12 @@ nnoremap <leader>tl <C-W>L
 nnoremap <C-J> <C-F>
 nnoremap <C-K> <C-B>
 
-nnoremap <leader>g <C-]>
+nmap <leader>g <C-]>
 nnoremap <leader>b <C-T>
 
 nnoremap <leader>ss :source ~/.vimrc<CR>
 nnoremap <leader>erc :new ~/.vimrc<cr>
-autocmd! bufwritepost [_.]vimrc source ~/.vimrc
+autocmd! bufwritepost *vimrc :source ~/.vimrc
 
 "自动补全
 "inoremap ( ()<ESC>i
@@ -130,4 +131,4 @@ nmap tl :Tlist<CR>
 
 " PyDictionary
 map <F5> :!python %<CR>
-let g:pydiction_location = '~/.vim/complete-dict'
+let g:pydiction_location = '~/.vim/pydiction'
