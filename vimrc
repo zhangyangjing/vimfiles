@@ -33,14 +33,13 @@ let g:mapleader=","
 nnoremap <leader>a ggVG
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <ESC>:w<CR>
-inoremap <leader>e <ESC>
 
-noremap <leader>k <C-W>k
-noremap <leader>j <C-W>j
-noremap <leader>h <C-W>h
-noremap <leader>l <C-W>l
-noremap <leader>J <C-W>b
-noremap <leader>K <C-W>t
+nmap <leader>k <C-W>k
+nmap <leader>j <C-W>j
+nmap <leader>h <C-W>h
+nmap <leader>l <C-W>l
+nmap <leader>J <C-W>b
+nmap <leader>K <C-W>t
 
 nnoremap <leader>vm <C-W>_
 nnoremap <leader>sm <C-W>\|
@@ -56,7 +55,7 @@ nnoremap <C-J> <C-F>
 nnoremap <C-K> <C-B>
 
 nmap <leader>g <C-]>
-nnoremap <leader>b <C-T>
+nmap <leader>b <C-O>
 
 nnoremap <leader>ss :source ~/.vimrc<CR>
 nnoremap <leader>erc :new ~/.vimrc<cr>
@@ -119,7 +118,7 @@ autocmd! bufwritepost *vimrc :source ~/.vimrc
 "
 """"""""""""""""""
 " NERDTree
-nmap tr :NERDTree<CR>
+nnoremap <leader>tr :NERDTree<CR>
 
 " Tag List
 set autochdir
@@ -127,7 +126,7 @@ set autochdir
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Left_Window = 1
-nmap tl :Tlist<CR>
+nnoremap <leader>ta :Tlist<CR>
 
 " PyDictionary
 map <F5> :!python %<CR>
