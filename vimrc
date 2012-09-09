@@ -34,12 +34,12 @@ nnoremap <leader>a ggVG
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <ESC>:w<CR>
 
-nmap <leader>k <C-W>k
-nmap <leader>j <C-W>j
-nmap <leader>h <C-W>h
-nmap <leader>l <C-W>l
-nmap <leader>J <C-W>b
-nmap <leader>K <C-W>t
+nnoremap <leader>k <C-W>k
+nnoremap <leader>j <C-W>j
+nnoremap <leader>h <C-W>h
+nnoremap <leader>l <C-W>l
+nnoremap <leader>J <C-W>b
+nnoremap <leader>K <C-W>t
 
 nnoremap <leader>vm <C-W>_
 nnoremap <leader>sm <C-W>\|
@@ -56,6 +56,7 @@ nnoremap <C-K> <C-B>
 
 nmap <leader>g <C-]>
 nmap <leader>b <C-O>
+nmap <leader>d <C-I>
 
 nnoremap <leader>ss :source ~/.vimrc<CR>
 nnoremap <leader>erc :new ~/.vimrc<cr>

@@ -70,7 +70,7 @@ function! JumpToTag(word_tag)
   call <SID>PreloadCtagsDB()
   if len(s:loaded_dbs) > 0
       exe 'tag '.a:word_tag
-      lw
+      "lw
   endif
 endfunction
 
