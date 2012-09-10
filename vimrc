@@ -33,6 +33,7 @@ let g:mapleader=","
 nnoremap <leader>a ggVG
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <ESC>:w<CR>
+nnoremap <leader>q :q<CR>
 
 nnoremap <leader>k <C-W>k
 nnoremap <leader>j <C-W>j
@@ -56,62 +57,11 @@ nnoremap <C-K> <C-B>
 
 nmap <leader>g <C-]>
 nmap <leader>b <C-O>
-nmap <leader>d <C-I>
+nnoremap <leader>z <C-I>
 
 nnoremap <leader>ss :source ~/.vimrc<CR>
 nnoremap <leader>erc :new ~/.vimrc<cr>
 autocmd! bufwritepost *vimrc :source ~/.vimrc
-
-"自动补全
-"inoremap ( ()<ESC>i
-"inoremap ) <c-r>=ClosePair(')')<CR>
-"inoremap { {<CR>}<ESC>O
-"inoremap } <c-r>=ClosePair('}')<CR>
-"inoremap [ []<ESC>i
-"inoremap ] <c-r>=ClosePair(']')<CR>
-"inoremap " ""<ESC>i
-"inoremap ' ''<ESC>i
-"function! ClosePair(char)
-"    if getline('.')[col('.') - 1] == a:char
-"        return "\<Right>"
-"    else
-"        return a:char
-"    endif
-"endfunction
-"
-"inoremap ( ()<ESC>i
-"inoremap ) <c-r>=ClosePair(')')<CR>
-"inoremap { {<CR>}<ESC>O
-"inoremap } <c-r>=ClosePair('}')<CR>
-"inoremap [ []<ESC>i
-"inoremap ] <c-r>=ClosePair(']')<CR>
-
-
-"function! AutoLoadCTagsAndCScope()
-"    let max = 6
-"    let dir = './'
-"    let i = 0
-"    let break = 0
-"    while isdirectory(dir) && i < max
-"        if filereadable(dir . 'cscope.out') 
-"            execute 'cs add ' . dir . 'cscope.out'
-"            echo 'cs add ' . dir . 'cscope.out'
-"            let break = 1
-"        endif
-"        if filereadable(dir . 'tags')
-"            execute 'set tags =' . dir . 'tags'
-"            let break = 1
-"        endif
-"        if break == 1
-"            execute 'lcd ' . dir
-"            break
-"        endif
-"        let dir = dir . '../'
-"        let i = i + 1
-"    endwhile
-"endf
-"nmap <F7> :call AutoLoadCTagsAndCScope()<CR>
-"autocmd FileType c,ch,cp call AutoLoadCTagsAndCScope()
 
 """"""""""""""""""
 "
