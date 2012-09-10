@@ -52,16 +52,31 @@ nnoremap <leader>tk <C-W>K
 nnoremap <leader>th <C-W>H
 nnoremap <leader>tl <C-W>L
 
+nnoremap <leader>tth :tabp<CR>
+nnoremap <leader>ttl :tabn<CR>
+
+nmap <leader>ii :A<CR> 
+nmap <leader>iv :AV<CR>
+nmap <leader>is :AS<CR>
+nmap <leader>it :AT<CR>
+
+noremap <leader>oo :new 
+noremap <leader>os :split 
+noremap <leader>ov :vnew 
+noremap <leader>ot :tabnew 
+
 nnoremap <C-J> <C-F>
 nnoremap <C-K> <C-B>
 
 nmap <leader>g <C-]>
 nmap <leader>b <C-O>
-nnoremap <leader>z <C-I>
+nnoremap <leader>p <C-I>
 
 nnoremap <leader>ss :source ~/.vimrc<CR>
 nnoremap <leader>erc :new ~/.vimrc<cr>
 autocmd! bufwritepost *vimrc :source ~/.vimrc
+
+"d p r u x y
 
 """"""""""""""""""
 "
@@ -82,3 +97,7 @@ nnoremap <leader>ta :Tlist<CR>
 " PyDictionary
 map <F5> :!python %<CR>
 let g:pydiction_location = '~/.vim/pydiction'
+
+" Comments
+map  <leader>cc <C-C>
+map  <leader>cx <C-X>

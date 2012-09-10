@@ -19,7 +19,7 @@ map <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
 map <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
 " i: Find files #including this file
 map <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
-map <leader>cl :call ToggleLocationList()<CR>
+map <leader>to :call ToggleLocationList()<CR>
 
 com! -nargs=? -complete=dir CscopeGen call CreateCscopeDB("<args>")
 com! -nargs=0 CscopeList call <SID>ListDBs()
