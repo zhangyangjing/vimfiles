@@ -52,8 +52,10 @@ nnoremap <leader>tk <C-W>K
 nnoremap <leader>th <C-W>H
 nnoremap <leader>tl <C-W>L
 
-nnoremap <leader>tth :tabp<CR>
-nnoremap <leader>ttl :tabn<CR>
+nnoremap <C-H> :tabp<CR>
+nnoremap <C-L> :tabn<CR>
+nnoremap <leader>ttl :call TableMove('forwart')<CR>
+nnoremap <leader>tth :call TableMove('backwart')<CR>
 
 nmap <leader>ii :A<CR> 
 nmap <leader>iv :AV<CR>
@@ -101,3 +103,26 @@ let g:pydiction_location = '~/.vim/pydiction'
 " Comments
 map  <leader>cc <C-C>
 map  <leader>cx <C-X>
+
+" Table
+function! TableMove(direction)
+    let tableCount = tabpagenr('$')
+    let tableIndex = tabpagenr()
+    
+    if 'forwart' == a:direction
+        let tableIndex += 1
+    else
+        let tableIndex -= 1 
+    endif
+    
+    if tableIndex > tableCount
+        let tableIndex = 1
+    endif
+    if tableIndex < 1
+        let tableIndex = tableCount
+    endif
+
+    let tableIndex -= 1
+
+    execute 'tabm '.tableIndex
+endfunction
