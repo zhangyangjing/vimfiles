@@ -52,15 +52,15 @@ nnoremap <leader>tk <C-W>K
 nnoremap <leader>th <C-W>H
 nnoremap <leader>tl <C-W>L
 
-nnoremap <C-H> :tabp<CR>
-nnoremap <C-L> :tabn<CR>
-nnoremap <leader>ttl :call TableMove('forwart')<CR>
-nnoremap <leader>tth :call TableMove('backwart')<CR>
+nnoremap <silent><C-H> :tabp<CR>
+nnoremap <silent><C-L> :tabn<CR>
+nnoremap <silent><leader>ttl :call TableMove('forward')<CR>
+nnoremap <silent><leader>tth :call TableMove('backward')<CR>
 
-nmap <leader>ii :A<CR> 
-nmap <leader>iv :AV<CR>
-nmap <leader>is :AS<CR>
-nmap <leader>it :AT<CR>
+nmap <silent><leader>ii :A<CR>
+nmap <silent><leader>iv :AV<CR>
+nmap <silent><leader>is :AS<CR>
+nmap <silent><leader>it :AT<CR>
 
 noremap <leader>oo :new 
 noremap <leader>os :split 
@@ -109,7 +109,7 @@ function! TableMove(direction)
     let tableCount = tabpagenr('$')
     let tableIndex = tabpagenr()
     
-    if 'forwart' == a:direction
+    if 'forward' == a:direction
         let tableIndex += 1
     else
         let tableIndex -= 1 
