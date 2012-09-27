@@ -78,6 +78,9 @@ nnoremap <leader>ss :source ~/.vimrc<CR>
 nnoremap <leader>erc :new ~/.vimrc<cr>
 autocmd! bufwritepost *vimrc :source ~/.vimrc
 
+autocmd BufRead *.c,*.h setlocal cc=80
+highlight ColorColumn ctermbg=8
+
 "d p r u x y
 
 """"""""""""""""""
