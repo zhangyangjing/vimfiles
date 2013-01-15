@@ -10,7 +10,7 @@
 " :he highlight-groups
 " :he cterm-colors
 
-set background=dark
+"set background=dark
 if version > 580
     " no guarantees for version 5.8 and below, but this makes it stop
     " complaining
@@ -106,3 +106,7 @@ hi Error	cterm=bold ctermfg=7 ctermbg=1
 
 
 "vim: sw=4
+
+highlight TabLineFill term=reverse cterm=reverse gui=reverse
+highlight TabLine term=reverse cterm=reverse gui=reverse
+highlight TabLineSel term=bold cterm=bold ctermbg=black ctermfg=yellow
