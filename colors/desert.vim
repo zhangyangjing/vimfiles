@@ -110,3 +110,8 @@ hi Error	cterm=bold ctermfg=7 ctermbg=1
 highlight TabLineFill term=reverse cterm=reverse gui=reverse
 highlight TabLine term=reverse cterm=reverse gui=reverse
 highlight TabLineSel term=bold cterm=bold ctermbg=black ctermfg=yellow
+
+highlight ColorColumn ctermbg=1
+highlight ColorLine ctermbg=1
+highlight CursorColumn ctermbg=1
+highlight CursorLine ctermbg=1

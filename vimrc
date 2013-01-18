@@ -89,7 +89,6 @@ autocmd! bufwritepost *vimrc :source ~/.vimrc
 
 " set 80 charact limit for c code file
 autocmd BufRead *.c,*.h setlocal cc=80
-highlight ColorColumn ctermbg=8
 
 "d p r u x y
 
