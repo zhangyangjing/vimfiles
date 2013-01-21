@@ -114,4 +114,4 @@ highlight TabLineSel term=bold cterm=bold ctermbg=black ctermfg=yellow
 highlight ColorColumn ctermbg=1
 highlight ColorLine ctermbg=1
 highlight CursorColumn ctermbg=1
-highlight CursorLine ctermbg=1
+highlight CursorLine ctermbg=8
