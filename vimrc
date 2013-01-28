@@ -68,10 +68,10 @@ nmap <silent><leader>is :AS<CR>
 nmap <silent><leader>it :AT<CR>
 
 " open new file
-noremap <leader>oo :new 
-noremap <leader>os :split 
-noremap <leader>ov :vnew 
-noremap <leader>ot :tabnew 
+noremap <leader>oo :new
+noremap <leader>os :split
+noremap <leader>ov :vnew
+noremap <leader>ot :tabnew
 
 " next/last page
 nnoremap <C-J> <C-F>
@@ -89,6 +89,10 @@ autocmd! bufwritepost *vimrc :source ~/.vimrc
 
 " set 80 charact limit for c code file
 autocmd BufRead *.c,*.h setlocal cc=80
+
+" highlight space at the end of line
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
 
 "d p r u x y
 
@@ -120,13 +124,13 @@ map  <leader>cx <C-X>
 function! TableMove(direction)
     let tableCount = tabpagenr('$')
     let tableIndex = tabpagenr()
-    
+
     if 'forward' == a:direction
         let tableIndex += 1
     else
-        let tableIndex -= 1 
+        let tableIndex -= 1
     endif
-    
+
     if tableIndex > tableCount
         let tableIndex = 1
     endif
