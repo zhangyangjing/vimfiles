@@ -28,6 +28,24 @@ set nocompatible
 set completeopt=longest,menu
 autocmd FileType c,ch,cpp,java setlocal cindent
 
+" os type
+if(has("win32") || has("win64") || has("win95") || has("win16"))
+	let g:iswindows = 1
+else
+	let g:iswindows = 0
+endif
+
+" vim type
+if has("gui_running")
+	let g:isGUI = 1
+else
+	let g:isGUI = 0
+endif
+
+if (g:iswindows && g:isGUI)
+    set go=c
+end
+
 let g:mapleader=","
 
 nnoremap <leader>a ggVG
@@ -84,8 +102,13 @@ nnoremap <leader>p <C-I>
 
 " auto load vimrc  config
 nnoremap <leader>ss :source ~/.vimrc<CR>
-nnoremap <leader>erc :new ~/.vimrc<cr>
-autocmd! bufwritepost *vimrc :source ~/.vimrc
+if g:iswindows == 1
+    autocmd! bufwritepost *vimrc :source $HOME/_vimrc
+    nnoremap <leader>erc :new $HOME/_vimrc<cr>
+else
+    autocmd! bufwritepost *vimrc :source ~/.vimrc
+    nnoremap <leader>erc :new ~/.vimrc<cr>
+endif
 
 " set 80 charact limit for c code file
 autocmd BufRead *.c,*.h setlocal cc=80
