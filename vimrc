@@ -9,7 +9,7 @@ filetype on
 filetype plugin indent on
 set nu    " show line number`
 set fileencoding=utf-8
-set encoding=utf-8
+"set encoding=utf-8
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -42,8 +42,9 @@ else
 	let g:isGUI = 0
 endif
 
-if (g:iswindows && g:isGUI)
+if g:isGUI
     set go=c
+    noremap <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 1)<CR>
 end
 
 let g:mapleader=","
