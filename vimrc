@@ -124,6 +124,9 @@ nmap <leader>g <C-]>
 nmap <leader>b <C-O>
 nnoremap <leader>p <C-I>
 
+" search show result in single window
+nmap <Leader>/ :exec 'lvimgrep /' . input('>', expand('<cword>')) . '/j % <bar> lopen'<CR>
+
 " auto load vimrc  config
 if g:iswindows == 1
     nnoremap <leader>ss :source $HOME/_vimrc<CR>
@@ -151,6 +154,7 @@ match WhitespaceEOL /\s\+$/
 """"""""""""""""""
 " NERDTree
 nnoremap <leader>tr :NERDTree<CR>
+let NERDTreeIgnore=['\.pyc$', '\~$']
 
 " Tag List
 set autochdir
