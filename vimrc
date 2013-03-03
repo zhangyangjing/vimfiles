@@ -44,11 +44,34 @@ endif
 
 if g:isGUI
     set go=c
-    noremap <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 1)<CR>
 end
 
-let g:mapleader=","
+if g:isGUI && g:iswindows
+    let g:windowAlpha=255
+    noremap <silent><F9> :call SetAlpha("down")<CR>
+    noremap <silent><F10> :call SetAlpha("up")<CR>
+    nnoremap <silent><F11> :call libcallnr("f", "ToggleFullScreen", 0)<CR>
+    inoremap <silent><F11> <ESC>:call libcallnr("f", "ToggleFullScreen", 0)<CR>
+endif
 
+function! SetAlpha(alpha)
+    if 'up' == a:alpha
+        let g:windowAlpha += 10
+        if 255 < g:windowAlpha
+            let g:windowAlpha = 255
+        endif
+    elseif 'down' == a:alpha
+        let g:windowAlpha -= 10
+        if 0 > g:windowAlpha
+            let g:windowAlpha = 0
+        endif
+    endif
+
+    call libcallnr("f", "SetAlpha", g:windowAlpha)
+endfunction
+
+
+let g:mapleader=","
 nnoremap <leader>a ggVG
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <ESC>:w<CR>
@@ -102,11 +125,12 @@ nmap <leader>b <C-O>
 nnoremap <leader>p <C-I>
 
 " auto load vimrc  config
-nnoremap <leader>ss :source ~/.vimrc<CR>
 if g:iswindows == 1
+    nnoremap <leader>ss :source $HOME/_vimrc<CR>
     autocmd! bufwritepost *vimrc :source $HOME/_vimrc
     nnoremap <leader>erc :new $HOME/_vimrc<cr>
 else
+    nnoremap <leader>ss :source ~/.vimrc<CR>
     autocmd! bufwritepost *vimrc :source ~/.vimrc
     nnoremap <leader>erc :new ~/.vimrc<cr>
 endif
@@ -138,8 +162,11 @@ nnoremap <leader>ta :Tlist<CR>
 
 " PyDictionary
 map <F5> :!python %<CR>
-let g:pydiction_location = '~/.vim/pydiction'
-
+if g:iswindows
+    let g:pydiction_location = '$HOME/vimfiles/pydiction'
+else
+    let g:pydiction_location = '~/.vim/pydiction'
+endif
 " Comments
 map  <leader>cc <C-C>
 map  <leader>cx <C-X>
