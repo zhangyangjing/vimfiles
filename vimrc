@@ -9,7 +9,7 @@ filetype on
 filetype plugin indent on
 set nu    " show line number`
 set fileencoding=utf-8
-"set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,chinese,cp936
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -27,6 +27,7 @@ set noswapfile
 set nocompatible
 set completeopt=longest,menu
 autocmd FileType c,ch,cpp,java setlocal cindent
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " os type
 if(has("win32") || has("win64") || has("win95") || has("win16"))
@@ -124,6 +125,9 @@ nmap <leader>g <C-]>
 nmap <leader>b <C-O>
 nnoremap <leader>p <C-I>
 
+" quick to run
+noremap <leader>r :!
+
 " search show result in single window
 nmap <Leader>/ :exec 'lvimgrep /' . input('>', expand('<cword>')) . '/j % <bar> lopen'<CR>
 
@@ -142,10 +146,14 @@ endif
 autocmd BufRead *.c,*.h setlocal cc=80
 
 " highlight space at the end of line
-highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
+highlight whitespaceEOL ctermbg=red guibg=red
+highlight ColorColumn ctermbg=red guibg=red
+autocmd BufNewFile,BufRead * syntax match whitespaceEOL /\s\+$/
+autocmd BufNewFile,BufRead * syntax match ColorColumn /\%>80v.\+/
+syntax match whitespaceEOL /\s\+$/
+syntax match ColorColumn /\%>80v.\+/
 
-"d p r u x y
+"d p u x y
 
 """"""""""""""""""
 "
@@ -154,7 +162,7 @@ match WhitespaceEOL /\s\+$/
 """"""""""""""""""
 " NERDTree
 nnoremap <leader>tr :NERDTree<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.sql']
 
 " Tag List
 set autochdir
@@ -164,13 +172,14 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Left_Window = 1
 nnoremap <leader>ta :Tlist<CR>
 
-" PyDictionary
+" pydictionary
 map <F5> :!python %<CR>
 if g:iswindows
-    let g:pydiction_location = '$HOME/vimfiles/pydiction'
+    let g:pydiction_location = '$HOME\vimfiles\complete-dict'
 else
     let g:pydiction_location = '~/.vim/pydiction'
 endif
+
 " Comments
 map  <leader>cc <C-C>
 map  <leader>cx <C-X>

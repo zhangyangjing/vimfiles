@@ -3,9 +3,8 @@
 " ============================================================================
 "
 " Author: Ryan Kulla (rkulla AT gmail DOT com)
-" Version: 1.2, for Vim 7
+" Version: 1.2.1, for Vim 7
 " URL: http://www.vim.org/scripts/script.php?script_id=850
-" Last Modified: July 22th, 2009
 " Installation: On Linux, put this file in ~/.vim/after/ftplugin/
 "               On Windows, put this file in C:\vim\vimfiles\ftplugin\
 "                        (assuming you installed vim in C:\vim\).
@@ -22,7 +21,7 @@
 "        exists in the complete-dict file.
 "        You can also use Shift-Tab to Tab backwards.
 " License: BSD
-" Copyright: Copyright (c) 2003-2009 Ryan Kulla
+" Copyright: Copyright (c) 2003-2013 Ryan Kulla
 "            All rights reserved.
 "
 "            Redistribution and use in source and binary forms, with or without
@@ -57,14 +56,15 @@ if v:version < 700
     finish
 endif
 
+
 " Make the Tab key do python code completion:
-autocmd! FileType python inoremap <silent> <buffer> <leader><Tab> 
+inoremap <silent> <buffer> <Tab> 
          \<C-R>=<SID>SetVals()<CR>
          \<C-R>=<SID>TabComplete('down')<CR>
          \<C-R>=<SID>RestoreVals()<CR>
 
 " Make Shift+Tab do python code completion in the reverse direction:
-autocmd! FileType python inoremap <silent> <buffer> <leader><S-Tab> 
+inoremap <silent> <buffer> <S-Tab> 
          \<C-R>=<SID>SetVals()<CR>
          \<C-R>=<SID>TabComplete('up')<CR>
          \<C-R>=<SID>RestoreVals()<CR>
