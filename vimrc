@@ -177,7 +177,7 @@ map <F5> :!python %<CR>
 if g:iswindows
     let g:pydiction_location = '$HOME\vimfiles\complete-dict'
 else
-    let g:pydiction_location = '~/.vim/pydiction'
+    let g:pydiction_location = '~/.vim/complete-dict'
 endif
 
 " Comments
