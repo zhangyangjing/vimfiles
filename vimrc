@@ -3,6 +3,7 @@
 " Util
 "
 """"""""""""""""""
+set t_Co=256
 colorscheme desert
 syntax on
 filetype on
@@ -141,9 +142,6 @@ else
     autocmd! bufwritepost *vimrc :source ~/.vimrc
     nnoremap <leader>erc :new ~/.vimrc<cr>
 endif
-
-" set 80 charact limit for c code file
-autocmd BufRead *.c,*.h setlocal cc=80
 
 " highlight space at the end of line
 highlight whitespaceEOL ctermbg=red guibg=red
