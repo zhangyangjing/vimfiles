@@ -99,16 +99,23 @@ hi MatchParen       ctermbg=196
 hi Visual	        ctermfg=235 ctermbg=248
 hi VisualNOS	    cterm=bold,underline
 
-hi Comment          ctermfg=24
+hi Comment          ctermfg=58
 hi Constant	        ctermfg=64
 hi String           ctermfg=70
 hi Character        ctermfg=72
 hi Number           ctermfg=124
 hi Boolean          ctermfg=64
 
+hi Error	cterm=bold ctermfg=7 ctermbg=1
+hi ErrorMsg	cterm=bold ctermfg=7 ctermbg=1
+
 hi Type	            ctermfg=64
 hi Todo             ctermbg=1   ctermfg=255
 
+hi Pmenu            ctermfg=0   ctermbg=246
+hi PmenuSel         ctermfg=248   ctermbg=243
+
+hi Directory        cterm=Bold ctermfg=70
 
 hi Normal	        ctermfg=249 ctermbg=234
 hi LineNr	        ctermfg=66  ctermbg=235
@@ -122,9 +129,9 @@ hi StatusLineNC     ctermfg=244 ctermbg=233
 hi VertSplit	    ctermfg=244 ctermbg=237
 
 hi Title	        ctermfg=124
-hi TabLineFill      ctermfg=244
-hi TabLine          ctermfg=247  ctermbg=237
-hi TabLineSel       ctermfg=250  ctermbg=234
+hi TabLineFill      ctermbg=244
+hi TabLine          ctermfg=247  ctermbg=243
+hi TabLineSel       ctermfg=250  ctermbg=237
 
 
 hi Cursor           ctermfg=1    ctermbg=1

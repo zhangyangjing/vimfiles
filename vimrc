@@ -144,8 +144,8 @@ else
 endif
 
 " highlight space at the end of line
-highlight whitespaceEOL ctermbg=red guibg=red
-highlight ColorColumn ctermbg=red guibg=red
+highlight whitespaceEOL ctermbg=1 guibg=red
+highlight ColorColumn ctermbg=1 guibg=red
 autocmd BufNewFile,BufRead * syntax match whitespaceEOL /\s\+$/
 autocmd BufNewFile,BufRead * syntax match ColorColumn /\%>80v.\+/
 syntax match whitespaceEOL /\s\+$/
