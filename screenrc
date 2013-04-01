@@ -26,6 +26,14 @@ bind 'l' next
 
 shelltitle "$ |bash"
 
-caption always "%{wb} %-w%{+b bw}%n %t%{-}%+w"
+caption always "%{wbd} %-w%{+b bw}%n %t%{-}%+w"
 sessionname yangjing
 autodetach on
+
+term screen-256color
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on
+
+shell -$SHELL
