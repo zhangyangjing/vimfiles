@@ -98,7 +98,7 @@ hi MatchParen       ctermbg=196
 
 hi Visual	        ctermfg=235 ctermbg=248
 hi VisualNOS	    cterm=bold,underline
-
+hi Function         ctermfg=105
 hi Comment          ctermfg=58
 hi Constant	        ctermfg=64
 hi String           ctermfg=70
