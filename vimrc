@@ -105,12 +105,6 @@ nnoremap <silent><C-L> :tabn<CR>
 nnoremap <silent><leader>ttl :call TableMove('forward')<CR>
 nnoremap <silent><leader>tth :call TableMove('backward')<CR>
 
-" include header switch
-nmap <silent><leader>ii :A<CR>
-nmap <silent><leader>iv :AV<CR>
-nmap <silent><leader>is :AS<CR>
-nmap <silent><leader>it :AT<CR>
-
 " open new file
 noremap <leader>oo :new
 noremap <leader>os :split
