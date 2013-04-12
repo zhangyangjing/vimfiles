@@ -19,8 +19,8 @@ let g:colors_name="desert"
 hi Normal	        ctermfg=249 ctermbg=235 guifg=White guibg=grey20
 
 hi Cursor           ctermfg=1    ctermbg=1 guibg=khaki guifg=slategrey
-hi CursorColumn     ctermbg=237
-hi CursorLine       ctermbg=237
+hi CursorColumn     cterm=none  ctermbg=237
+hi CursorLine       cterm=none  ctermbg=237
 hi ColorColumn      ctermbg=1
 hi ColorLine        ctermbg=1
 
