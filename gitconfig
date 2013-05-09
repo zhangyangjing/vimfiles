@@ -1,0 +1,12 @@
+[user]
+	email = zhangyangjing@gmail.com
+	name = Yangjing Zhang
+[alias]
+    co = checkout
+	st = status
+    ci = commit
+    br = branch
+[color]
+	diff = auto
+	status = auto
+	branch = auto
