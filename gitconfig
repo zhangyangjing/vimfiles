@@ -10,3 +10,7 @@
 	diff = auto
 	status = auto
 	branch = auto
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = No
