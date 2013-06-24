@@ -4,6 +4,7 @@
 "
 """"""""""""""""""
 set t_Co=256
+set t_ut=
 colorscheme desert
 syntax on
 filetype on
