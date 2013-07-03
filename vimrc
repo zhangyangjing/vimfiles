@@ -4,7 +4,6 @@
 "
 """"""""""""""""""
 set t_Co=256
-set t_ut=
 colorscheme desert
 syntax on
 filetype on
@@ -121,6 +120,10 @@ nmap <leader>g <C-]>
 nmap <leader>b <C-O>
 nnoremap <leader>p <C-I>
 
+" htlf-auto paste mode
+nnoremap <leader>x :set paste<CR>i
+autocmd InsertLeave * :set nopaste
+
 " quick to run
 noremap <leader>r :!
 
@@ -146,7 +149,7 @@ autocmd BufNewFile,BufRead * syntax match ColorColumn /\%>80v.\+/
 syntax match whitespaceEOL /\s\+$/
 syntax match ColorColumn /\%>80v.\+/
 
-"d p u x y
+"d p u y
 
 """"""""""""""""""
 "
@@ -156,6 +159,7 @@ syntax match ColorColumn /\%>80v.\+/
 " NERDTree
 nnoremap <leader>tr :NERDTree<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.sql']
+let NERDTreeDirArrows = 0
 
 " Tag List
 set autochdir
@@ -173,9 +177,14 @@ else
     let g:pydiction_location = '~/.vim/complete-dict'
 endif
 
+" flake8
+autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
+let g:flake8_ignore="F403"
+
 " Comments
 map  <leader>cc <C-C>
 map  <leader>cx <C-X>
+
 
 " Table
 function! TableMove(direction)
@@ -199,3 +208,4 @@ function! TableMove(direction)
 
     execute 'tabm '.tableIndex
 endfunction
+

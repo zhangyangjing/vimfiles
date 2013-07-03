@@ -26,8 +26,7 @@ bind 'l' next
 
 shelltitle "$ |bash"
 
-caption always "%{wbd} %-w%{+b bw}%n %t%{-}%+w"
-autodetach on
+caption always "%{wbd} %-w%{+b bw}%n %t%{-}%+w %=%{..G} %Y/%m/%d %c:%s "
 
 term screen-256color
 terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
