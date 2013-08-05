@@ -1,3 +1,5 @@
+[core]
+	filemode = false
 [user]
 	email = zhangyangjing@gmail.com
 	name = Yangjing Zhang
