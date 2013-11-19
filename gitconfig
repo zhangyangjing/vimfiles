@@ -16,3 +16,6 @@
 	tool = vimdiff
 [difftool]
 	prompt = No
+[gc]
+	auto = 0
+	pruneexpire = 360 days
