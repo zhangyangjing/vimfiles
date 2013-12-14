@@ -1,3 +1,5 @@
+[core]
+	filemode = false
 [user]
 	email = zhangyangjing@gmail.com
 	name = Yangjing Zhang
@@ -14,3 +16,6 @@
 	tool = vimdiff
 [difftool]
 	prompt = No
+[gc]
+	auto = 0
+	pruneexpire = 360 days
