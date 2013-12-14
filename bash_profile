@@ -9,7 +9,7 @@ fi
 PATH=$PATH:$HOME/bin
 export PATH
 
-alias ls='ls -G --color=auto'
+alias ls='ls -G'
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
