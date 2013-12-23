@@ -122,6 +122,10 @@ nmap <leader>g <C-]>
 nmap <leader>b <C-O>
 nnoremap <leader>p <C-I>
 
+" line move
+nmap <leader>st 0
+nmap <leader>en $
+
 " htlf-auto paste mode
 nnoremap <leader>x :set paste<CR>i
 autocmd InsertLeave * :set nopaste
