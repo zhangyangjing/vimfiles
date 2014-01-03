@@ -30,6 +30,8 @@ set completeopt=longest,menu
 autocmd FileType c,ch,cpp,java setlocal cindent
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
+autocmd FileType c,ch,cpp,python set cc=80
+
 " os type
 if(has("win32") || has("win64") || has("win95") || has("win16"))
 	let g:iswindows = 1
@@ -119,6 +121,10 @@ nnoremap <C-K> <C-B>
 nmap <leader>g <C-]>
 nmap <leader>b <C-O>
 nnoremap <leader>p <C-I>
+
+" line move
+nmap <leader>st 0
+nmap <leader>en $
 
 " htlf-auto paste mode
 nnoremap <leader>x :set paste<CR>i
