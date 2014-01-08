@@ -2,7 +2,12 @@
 PATH=$PATH:$HOME/bin
 export PATH
 
-alias ls='ls -G --color'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias ls='ls -G -G'
+else
+    alias ls='ls -G --color'
+fi
+
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
