@@ -2,7 +2,7 @@
 PATH=$PATH:$HOME/bin
 export PATH
 
-alias ls='ls -G'
+alias ls='ls -G --color'
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
