@@ -1,5 +1,17 @@
 #!bash
 
+function src_count {
+    type=$1
+    total=0
+    for x in `find ./* -type f -name "*.$type"`;
+    do
+        single=`cat $x|wc -l`
+        total=$total+$single
+    done
+
+    echo $total|bc
+}
+
 #
 # about ssh connect
 #
@@ -7,11 +19,15 @@ function server {
     if [ $# -eq 1 ]
     then
         _connect $1
+    else
+        _show_server_help
     fi
 }
 
 _connect() {
     case "$1" in
+        "home")
+            ssh zyj@192.168.1.100;;
         "linode")
             ssh zyj@106.187.37.180;;
         "100")
@@ -25,14 +41,18 @@ _connect() {
         "180")
             ssh zyj@211.151.127.180;;
         *)
-            echo bad host name
-            echo "  linode"
-            echo "  100"
-            echo "  gs"
-            echo "  178"
-            echo "  179"
-            echo "  180";;
+            _show_server_help;;
     esac
+}
+
+_show_server_help() {
+    echo bad host name
+    echo "  linode"
+    echo "  100"
+    echo "  gs"
+    echo "  178"
+    echo "  179"
+    echo "  180"
 }
 
 
@@ -40,3 +60,8 @@ _connect() {
 function man2pdf {
     man -t $1 | open -f -a /Applications/Preview.app
 }
+
+# exports
+export PATH=/Users/zhangyangjing/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:$PATH
+export PATH=/Users/zhangyangjing/Applications/adt-bundle-mac-x86_64-20131030/sdk/build-tools/android-4.4:$PATH
+export PATH=/Users/zhangyangjing/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools:$PATH

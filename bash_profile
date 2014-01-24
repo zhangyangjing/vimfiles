@@ -13,6 +13,7 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
 alias lal='ls -al'
+alias cls='clear'
 
 export PS1="\u@\W\$ "
 export CLICOLOR=1
