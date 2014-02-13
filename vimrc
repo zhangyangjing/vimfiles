@@ -175,8 +175,18 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 nnoremap <leader>ta :Tlist<CR>
 
+
+" auto run
+nnoremap <silent><F5> :call AutoRun()<CR>
+function! AutoRun()
+    if 'python' == &filetype
+        exe "!python %"
+    elseif 'php' == &filetype
+        exe "!php %"
+    endif
+endfunction
+
 " pydictionary
-map <F5> :!python %<CR>
 if g:iswindows
     let g:pydiction_location = '$HOME\vimfiles\complete-dict'
 else

@@ -28,6 +28,8 @@ _connect() {
     case "$1" in
         "home")
             ssh zyj@192.168.1.100;;
+        "homehome")
+            ssh zyj@home.zhangyangjing.com;;
         "linode")
             ssh zyj@106.187.37.180;;
         "100")
