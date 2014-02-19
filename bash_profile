@@ -19,6 +19,7 @@ export PS1="\u@\W\$ "
 export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx
 export GREP_OPTIONS='--color=auto'
+export PYTHONDONTWRITEBYTECODE=x
 
 # source bashrc
 if [ -f ~/.bashrc  ]
