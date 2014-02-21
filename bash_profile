@@ -14,12 +14,14 @@ alias la='ls -a'
 alias lla='ls -al'
 alias lal='ls -al'
 alias cls='clear'
+#alias tmux='TERM=xterm-256color tmux'
 
 export PS1="\u@\W\$ "
 export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx
 export GREP_OPTIONS='--color=auto'
 export PYTHONDONTWRITEBYTECODE=x
+#export TERM=xterm-256color
 
 # source bashrc
 if [ -f ~/.bashrc  ]
