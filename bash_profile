@@ -14,6 +14,7 @@ alias la='ls -a'
 alias lla='ls -al'
 alias lal='ls -al'
 alias cls='clear'
+alias tm='tmux'
 #alias tmux='TERM=xterm-256color tmux'
 
 export PS1="\u@\W\$ "
