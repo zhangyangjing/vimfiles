@@ -175,17 +175,6 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 nnoremap <leader>ta :Tlist<CR>
 
-
-" auto run
-nnoremap <silent><F5> :call AutoRun()<CR>
-function! AutoRun()
-    if 'python' == &filetype
-        exe "!python %"
-    elseif 'php' == &filetype
-        exe "!php %"
-    endif
-endfunction
-
 " pydictionary
 if g:iswindows
     let g:pydiction_location = '$HOME\vimfiles\complete-dict'
@@ -194,8 +183,18 @@ else
 endif
 
 " flake8
-autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
+autocmd! FileType python map <buffer> <F7> :call Flake8()<CR>
 let g:flake8_ignore="F403"
+
+" auto run
+"nnoremap <silent><F5> :call AutoRun()<CR>
+"function! AutoRun()
+    "if 'python' == &filetype
+        "exe "!python %"
+    "elseif 'php' == &filetype
+        "exe "!php %"
+    "endif
+"endfunction
 
 " Comments
 map  <leader>cc <C-C>
