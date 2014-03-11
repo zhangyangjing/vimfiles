@@ -29,7 +29,6 @@ set nocompatible
 set completeopt=longest,menu
 autocmd FileType c,ch,cpp,java setlocal cindent
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-
 autocmd FileType c,ch,cpp,python set cc=80
 
 " os type
@@ -130,9 +129,6 @@ nmap <leader>en $
 nnoremap <leader>x :set paste<CR>i
 autocmd InsertLeave * :set nopaste
 
-" quick to run
-noremap <leader>r :!
-
 " search show result in single window
 nmap <Leader>/ :exec 'lvimgrep /' . input('>', expand('<cword>')) . '/j % <bar> lopen'<CR>
 
@@ -183,18 +179,20 @@ else
 endif
 
 " flake8
-autocmd! FileType python map <buffer> <F7> :call Flake8()<CR>
+autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
 let g:flake8_ignore="F403"
 
 " auto run
-"nnoremap <silent><F5> :call AutoRun()<CR>
-"function! AutoRun()
-    "if 'python' == &filetype
-        "exe "!python %"
-    "elseif 'php' == &filetype
-        "exe "!php %"
-    "endif
-"endfunction
+nnoremap <silent><F5> :call AutoRun()<CR>
+function! AutoRun()
+    if 'python' == &filetype
+        exe "!python %"
+    elseif 'php' == &filetype
+        exe "!php %"
+    elseif 'sh' == &filetype
+        exe "!bash %"
+    endif
+endfunction
 
 " Comments
 map  <leader>cc <C-C>
@@ -223,4 +221,3 @@ function! TableMove(direction)
 
     execute 'tabm '.tableIndex
 endfunction
-
