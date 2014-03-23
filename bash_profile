@@ -21,7 +21,7 @@ export PS1="\u@\W\$ "
 export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx
 export GREP_OPTIONS='--color=auto'
-export PYTHONDONTWRITEBYTECODE=x
+export PYTHONDONTWRITEBYTECODE=1
 #export TERM=xterm-256color
 
 # source bashrc
