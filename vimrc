@@ -191,6 +191,8 @@ function! AutoRun()
         exe "!php %"
     elseif 'sh' == &filetype
         exe "!bash %"
+    elseif 'javascript' == &filetype
+        exe '!node %'
     endif
 endfunction
 
