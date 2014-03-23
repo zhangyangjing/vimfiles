@@ -67,3 +67,6 @@ function man2pdf {
 export PATH=/Users/zhangyangjing/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools:$PATH
 export PATH=/Users/zhangyangjing/Applications/adt-bundle-mac-x86_64-20131030/sdk/build-tools/android-4.4:$PATH
 export PATH=/Users/zhangyangjing/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools:$PATH
+
+# tmux
+[[ -s "$HOME/.pythonbrew/etc/bashrc"  ]] && source "$HOME/.pythonbrew/etc/bashrc"
