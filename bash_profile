@@ -22,6 +22,7 @@ export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx
 export GREP_OPTIONS='--color=auto'
 export PYTHONDONTWRITEBYTECODE=x
+export LANG='en_US.UTF-8'
 #export TERM=xterm-256color
 
 # source bashrc
