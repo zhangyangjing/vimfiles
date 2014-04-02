@@ -223,3 +223,16 @@ function! TableMove(direction)
 
     execute 'tabm '.tableIndex
 endfunction
+
+" Python complete
+inoremap <silent><buffer> <Tab> <C-R>=TabComplete()<CR>
+function! TabComplete()
+    if searchpos('[_a-zA-Z0-9.(]\%#', 'nb') != [0, 0] 
+        if !pumvisible()
+            return "\<C-X>\<C-O>"
+        else
+            return "\<C-N>"
+        endif
+    endif
+    return "\<Tab>"
+endfunction

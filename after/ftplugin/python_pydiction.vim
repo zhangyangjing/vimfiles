@@ -58,16 +58,16 @@ endif
 
 
 " Make the Tab key do python code completion:
-inoremap <silent> <buffer> <Tab> 
-         \<C-R>=<SID>SetVals()<CR>
-         \<C-R>=<SID>TabComplete('down')<CR>
-         \<C-R>=<SID>RestoreVals()<CR>
+"inoremap <silent> <buffer> <Tab> 
+         "\<C-R>=<SID>SetVals()<CR>
+         "\<C-R>=<SID>TabComplete('down')<CR>
+         "\<C-R>=<SID>RestoreVals()<CR>
 
 " Make Shift+Tab do python code completion in the reverse direction:
-inoremap <silent> <buffer> <S-Tab> 
-         \<C-R>=<SID>SetVals()<CR>
-         \<C-R>=<SID>TabComplete('up')<CR>
-         \<C-R>=<SID>RestoreVals()<CR>
+"inoremap <silent> <buffer> <S-Tab> 
+         "\<C-R>=<SID>SetVals()<CR>
+         "\<C-R>=<SID>TabComplete('up')<CR>
+         "\<C-R>=<SID>RestoreVals()<CR>
 
 
 if !exists("*s:TabComplete")
@@ -82,7 +82,7 @@ if !exists("*s:TabComplete")
         " If the char is some other character, insert a normal Tab:
         if searchpos('[_a-zA-Z0-9.(]\%#', 'nb') != [0, 0] 
             if !pumvisible()
-                return "\<C-X>\<C-K>"
+                return "\<C-X>\<C-O>"
             else
                 if a:direction == 'down'
                     return "\<C-N>"
