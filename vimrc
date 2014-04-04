@@ -225,7 +225,7 @@ function! TableMove(direction)
 endfunction
 
 " Python complete
-inoremap <silent><buffer> <Tab> <C-R>=TabComplete()<CR>
+inoremap <Tab> <C-R>=TabComplete()<CR>
 function! TabComplete()
     if searchpos('[_a-zA-Z0-9.(]\%#', 'nb') != [0, 0] 
         if !pumvisible()
