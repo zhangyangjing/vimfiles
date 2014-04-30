@@ -31,7 +31,7 @@ _connect() {
         "homehome")
             ssh zyj@home.zhangyangjing.com;;
         "linode")
-            ssh zyj@106.187.37.180;;
+            ssh zyj@128.199.192.171;;
         "100")
             ssh zyj@10.0.0.100;;
         "gs")
