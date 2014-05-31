@@ -171,6 +171,9 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 nnoremap <leader>ta :Tlist<CR>
 
+" TagBar
+nmap <F8> :TagbarToggle<CR>
+
 " pydictionary
 if g:iswindows
     let g:pydiction_location = '$HOME\vimfiles\complete-dict'
