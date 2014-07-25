@@ -557,13 +557,10 @@ comm! -nargs=? -bang IHS call AlternateOpenFileUnderCursor("h<bang>", <f-args>)
 comm! -nargs=? -bang IHV call AlternateOpenFileUnderCursor("v<bang>", <f-args>)
 comm! -nargs=? -bang IHT call AlternateOpenFileUnderCursor("t<bang>", <f-args>)
 comm! -nargs=? -bang IHN call AlternateOpenNextFile("<bang>")
-nmap <Leader>ii ::A<CR>
-imap <Leader>ih <ESC>:IHV<CR>
-nmap <Leader>ih :IHV<CR>
-imap <Leader>is <ESC>:IHV<CR>:A<CR>
-nmap <Leader>is :IHV<CR>:A<CR>
-imap <Leader>ihn <ESC>:IHN<CR>
-nmap <Leader>ihn :IHN<CR>
+nmap <Leader>ii :A<CR>
+nmap <Leader>is :AS<CR>
+nmap <Leader>iv :AV<CR>
+nmap <Leader>it :AT<CR>
 
 "function! <SID>PrintList(theList) 
 "   let n = 1
