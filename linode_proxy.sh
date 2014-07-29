@@ -2,6 +2,6 @@
 
 while [ 1 ]
 do
-    ssh -t -t -g -C -D 8038 zyj@128.199.192.171
+    ssh -t -t -g -C -D 8038 zyj@zhangyangjing.com
     sleep 5
 done
