@@ -4,7 +4,7 @@ echo init link files...
 fs='tmux.conf vimrc bashrc bash_profile inputrc gitconfig screenrc'
 for f in $fs
 do
-    if [ -s ~/.$f ]
+    if [ -f ~/.$f ] || [ -L ~/.$f ]
     then
         read -p "$HOME/.$f exists, delete it? (y/n):"
 
