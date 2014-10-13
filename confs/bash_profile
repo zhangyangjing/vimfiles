@@ -1,13 +1,10 @@
-# User specific environment and startup programs
-PATH=$PATH:$HOME/bin
-export PATH
+#!bash
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias ls='ls -G -G'
 else
     alias ls='ls -G --color'
 fi
-
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
@@ -15,18 +12,27 @@ alias lla='ls -al'
 alias lal='ls -al'
 alias cls='clear'
 alias tm='tmux'
-#alias tmux='TERM=xterm-256color tmux'
+alias scpr='rsync -avzP'
+alias tmux='TERM=xterm-256color tmux'
 
 export PS1="\u@\W\$ "
 export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx
 export PYTHONDONTWRITEBYTECODE=1
 export GREP_OPTIONS='--color=auto'
-export LANG='en_US.UTF-8'
-#export TERM=xterm-256color
+export LANGUAGE=en_US:en
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export TERM=xterm-256color
 
 # source bashrc
 if [ -f ~/.bashrc  ]
 then
     source ~/.bashrc
+fi
+
+# source exports
+if [ -f ~/.bash_export ]
+then
+    source ~/.bash_export
 fi
