@@ -1,5 +1,6 @@
 [core]
 	filemode = false
+	autocrlf = input
 [user]
 	email = zhangyangjing@gmail.com
 	name = Yangjing Zhang
@@ -19,3 +20,5 @@
 [gc]
 	auto = 0
 	pruneexpire = 360 days
+[push]
+	default = simple
