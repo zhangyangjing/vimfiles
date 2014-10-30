@@ -20,5 +20,3 @@
 [gc]
 	auto = 0
 	pruneexpire = 360 days
-[push]
-	default = simple
