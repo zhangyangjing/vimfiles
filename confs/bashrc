@@ -33,15 +33,9 @@ _connect() {
         "linode")
             ssh zyj@zhangyangjing.com;;
         "100")
-            ssh zyj@10.0.0.100;;
-        "gs")
-            ssh zyj@intra.enjoystudy.com -p18000;;
-        "178")
-            ssh zyj@211.151.127.178;;
-        "179")
-            ssh zyj@211.151.127.179;;
-        "180")
-            ssh zyj@211.151.127.180;;
+            ssh zyj@192.168.199.154;;
+        "ali")
+            ssh zyj@123.57.5.24;;
         *)
             _show_server_help;;
     esac
@@ -51,10 +45,7 @@ _show_server_help() {
     echo bad host name
     echo "  linode"
     echo "  100"
-    echo "  gs"
-    echo "  178"
-    echo "  179"
-    echo "  180"
+    echo "  ali"
 }
 
 
