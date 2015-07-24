@@ -14,6 +14,10 @@ alias cls='clear'
 alias tm='tmux'
 alias scpr='rsync -avzP'
 alias tmux='TERM=xterm-256color tmux'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 export PS1="\u@\W\$ "
 export CLICOLOR=1
