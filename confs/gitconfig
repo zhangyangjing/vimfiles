@@ -1,6 +1,7 @@
 [core]
 	filemode = false
 	autocrlf = input
+	editor = vim
 [user]
 	email = zhangyangjing@gmail.com
 	name = Yangjing Zhang
@@ -20,3 +21,5 @@
 [gc]
 	auto = 0
 	pruneexpire = 360 days
+[branch]
+	autosetuprebase = always
