@@ -23,3 +23,5 @@
 	pruneexpire = 360 days
 [branch]
 	autosetuprebase = always
+[push]
+	default = simple
