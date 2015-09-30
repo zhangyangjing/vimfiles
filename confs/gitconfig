@@ -2,6 +2,7 @@
 	filemode = false
 	autocrlf = input
 	editor = vim
+    ignorecase = false
 [user]
 	email = zhangyangjing@gmail.com
 	name = Yangjing Zhang
