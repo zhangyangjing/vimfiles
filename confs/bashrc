@@ -32,10 +32,8 @@ _connect() {
             ssh zyj@home.zhangyangjing.com;;
         "linode")
             ssh zyj@zhangyangjing.com;;
-        "100")
-            ssh zyj@192.168.199.154;;
-        "ali")
-            ssh zyj@123.57.5.24;;
+        "248")
+            ssh zyj@10.0.0.248;;
         *)
             _show_server_help;;
     esac
@@ -54,5 +52,5 @@ function man2pdf {
     man -t $1 | open -f -a /Applications/Preview.app
 }
 
-# tmux
-[[ -s "$HOME/.pythonbrew/etc/bashrc"  ]] && source "$HOME/.pythonbrew/etc/bashrc"
+#pyenv
+eval "$(pyenv init -)"
