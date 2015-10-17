@@ -36,8 +36,8 @@ then
     source ~/.bashrc
 fi
 
-# source exports
-if [ -f ~/.bash_export ]
+# source ext
+if [ -f ~/.bash_ext ]
 then
-    source ~/.bash_export
+    source ~/.bash_ext
 fi

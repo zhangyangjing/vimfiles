@@ -53,4 +53,7 @@ function man2pdf {
 }
 
 #pyenv
-eval "$(pyenv init -)"
+if [ -e ~/.pyenv ]
+then
+    eval "$(pyenv init -)"
+fi
