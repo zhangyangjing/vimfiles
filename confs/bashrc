@@ -52,8 +52,16 @@ function man2pdf {
     man -t $1 | open -f -a /Applications/Preview.app
 }
 
+#bin
+if [ -e ~/bin ]
+then
+    export PATH=~/bin:$PATH
+fi
+
 #pyenv
 if [ -e ~/.pyenv ]
 then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 fi
