@@ -185,6 +185,12 @@ endif
 autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
 let g:flake8_ignore="F403"
 
+" buffergator
+nnoremap <silent> <leader>d :BuffergatorToggle<CR>
+let g:buffergator_viewport_split_policy = "B"
+let g:buffergator_suppress_mru_switch_into_splits_keymaps = 1
+let g:buffergator_suppress_mru_switching_keymaps = 1
+
 " auto run
 nnoremap <silent><F5> :call AutoRun()<CR>
 function! AutoRun()
