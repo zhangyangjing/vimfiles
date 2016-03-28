@@ -12,41 +12,6 @@ function src_count {
     echo $total|bc
 }
 
-#
-# about ssh connect
-#
-function server {
-    if [ $# -eq 1 ]
-    then
-        _connect $1
-    else
-        _show_server_help
-    fi
-}
-
-_connect() {
-    case "$1" in
-        "home")
-            ssh zyj@192.168.1.100;;
-        "homehome")
-            ssh zyj@home.zhangyangjing.com;;
-        "linode")
-            ssh zyj@zhangyangjing.com;;
-        "248")
-            ssh zyj@10.0.0.248;;
-        *)
-            _show_server_help;;
-    esac
-}
-
-_show_server_help() {
-    echo bad host name
-    echo "  linode"
-    echo "  100"
-    echo "  ali"
-}
-
-
 # translate man help page to pdf format, only for MAC
 function man2pdf {
     man -t $1 | open -f -a /Applications/Preview.app
