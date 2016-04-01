@@ -5,6 +5,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
     alias ls='ls -G --color'
 fi
+
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
