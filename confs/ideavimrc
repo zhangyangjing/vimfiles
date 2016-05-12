@@ -48,9 +48,10 @@ nnoremap <leader>va :action ActivateAndroidMonitorToolWindow<CR>
 nnoremap <leader>vm :action ActivateMessagesToolWindow<CR>
 nnoremap <C-L> :action NextTab<CR>
 nnoremap <C-H> :action PreviousTab<CR>
-nnoremap <C-X> :action SmartTypeCompletion<CR>
 nnoremap <C-U> :action FindUsages<CR>
 nnoremap <C-S> :action FileStructurePopup<cr>
+nnoremap <C-T> :action TypeHierarchy<CR>
 nnoremap <C-D> :action QuickJavaDoc<CR>
 nnoremap <C-O> :action OverrideMethods<CR>
 nnoremap <C-I> :action QuickImplementations<CR>
+nnoremap <C-F> :action JumpToLastWindow<CR>
