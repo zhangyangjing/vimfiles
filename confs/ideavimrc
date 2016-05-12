@@ -28,8 +28,8 @@ nmap <leader>en $
 " idea actions
 nnoremap <leader>g :action GotoImplementation<CR>
 nnoremap <leader>b :action Back<CR>
-nnoremap <leader>ttl :action MoveTabRight<CR>
-nnoremap <leader>ttj :action MoveTabDown<CR>
+nnoremap <leader>tl :action MoveTabRight<CR>
+nnoremap <leader>tj :action MoveTabDown<CR>
 nnoremap <leader>fu :action ShowUsages<CR>
 nnoremap <leader>fc :action GotoClass<CR>
 nnoremap <leader>ff :action GotoFile<CR>
