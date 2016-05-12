@@ -38,7 +38,7 @@ nnoremap <leader>ft :action GotoTest<CR>
 nnoremap <leader>fm :action ReformatCode<CR>
 nnoremap <leader>vp :action ActivateProjectToolWindow<CR>
 nnoremap <leader>vs :action ActivateStructureToolWindow<CR>
-nnoremap <leader>vv :action ActivateVer<CR>
+nnoremap <leader>vv :action Vcs.Show.Local.Changes<CR>
 nnoremap <leader>vt :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>vf :action ActivateFavoritesToolWindow<CR>
 nnoremap <leader>vb :action ActivateBuildVariantsToolWindow<CR>
