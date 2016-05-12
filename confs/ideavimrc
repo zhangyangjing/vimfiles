@@ -1,0 +1,56 @@
+""""""""""""""""""
+"
+" Util
+"
+""""""""""""""""""
+set nu    " show line number`
+
+let mapleader=","
+nnoremap <leader>a ggVG
+nnoremap <leader>w :w<CR>
+inoremap <leader>w <ESC>:w<CR>
+nnoremap <leader>q :q<CR>
+
+" window switch
+nnoremap <leader>k <C-W>k
+nnoremap <leader>j <C-W>j
+nnoremap <leader>h <C-W>h
+nnoremap <leader>l <C-W>l
+
+" next/last page
+nnoremap <C-J> <C-F>
+nnoremap <C-K> <C-B>
+
+" line move
+nmap <leader>st 0
+nmap <leader>en $
+
+" idea actions
+nnoremap <leader>g :action GotoImplementation<CR>
+nnoremap <leader>b :action Back<CR>
+nnoremap <leader>ttl :action MoveTabRight<CR>
+nnoremap <leader>ttj :action MoveTabDown<CR>
+nnoremap <leader>fu :action ShowUsages<CR>
+nnoremap <leader>fc :action GotoClass<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fs :action GotoSymbol<CR>
+nnoremap <leader>ft :action GotoTest<CR>
+nnoremap <leader>fm :action ReformatCode<CR>
+nnoremap <leader>vp :action ActivateProjectToolWindow<CR>
+nnoremap <leader>vs :action ActivateStructureToolWindow<CR>
+nnoremap <leader>vv :action ActivateVer<CR>
+nnoremap <leader>vt :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>vf :action ActivateFavoritesToolWindow<CR>
+nnoremap <leader>vb :action ActivateBuildVariantsToolWindow<CR>
+nnoremap <leader>vg :action ActivateGradleToolWindow<CR>
+nnoremap <leader>vd :action ActivateDebugToolWindow<CR>
+nnoremap <leader>va :action ActivateAndroidMonitorToolWindow<CR>
+nnoremap <leader>vm :action ActivateMessagesToolWindow<CR>
+nnoremap <C-L> :action NextTab<CR>
+nnoremap <C-H> :action PreviousTab<CR>
+nnoremap <C-N> :action SmartTypeCompletion<CR>
+nnoremap <C-U> :action FindUsages<CR>
+nnoremap <C-S> :action FileStructurePopup<cr>
+nnoremap <C-D> :action QuickJavaDoc<CR>
+nnoremap <C-O> :action OverrideMethods<CR>
+nnoremap <C-I> :action QuickImplementations<CR>

@@ -1,7 +1,7 @@
 #/usr/bin/env sh
 
 echo init link files...
-fs='tmux.conf vimrc bashrc bash_profile inputrc gitconfig screenrc'
+fs='tmux.conf vimrc bashrc bash_profile inputrc gitconfig screenrc ideavimrc'
 for f in $fs
 do
     if [ -f ~/.$f ] || [ -L ~/.$f ]
