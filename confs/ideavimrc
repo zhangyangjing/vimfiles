@@ -26,7 +26,7 @@ nmap <leader>st 0
 nmap <leader>en $
 
 " idea actions
-nnoremap <leader>g :action GotoImplementation<CR>
+nnoremap <leader>g :action GotoDeclaration<CR>
 nnoremap <leader>b :action Back<CR>
 nnoremap <leader>tl :action MoveTabRight<CR>
 nnoremap <leader>tj :action MoveTabDown<CR>
