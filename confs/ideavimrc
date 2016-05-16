@@ -46,6 +46,9 @@ nnoremap <leader>vg :action ActivateGradleToolWindow<CR>
 nnoremap <leader>vd :action ActivateDebugToolWindow<CR>
 nnoremap <leader>va :action ActivateAndroidMonitorToolWindow<CR>
 nnoremap <leader>vm :action ActivateMessagesToolWindow<CR>
+nnoremap <leader>mm :action ToggleBookmark<CR>
+nnoremap <leader>mn :action ToggleBookmarkWithMnemonic<CR>
+nnoremap <leader>ml :action ShowBookmarks<CR>
 nnoremap <C-L> :action NextTab<CR>
 nnoremap <C-H> :action PreviousTab<CR>
 nnoremap <C-U> :action FindUsages<CR>
