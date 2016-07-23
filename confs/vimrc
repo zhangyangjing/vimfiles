@@ -129,6 +129,9 @@ nmap <leader>en $
 nnoremap <leader>x :set paste<CR>i
 autocmd InsertLeave * :set nopaste
 
+" format json
+nnoremap <leader>fj :%!python -m json.tool<CR>
+
 " search show result in single window
 nmap <Leader>/ :exec 'lvimgrep /' . input('>', expand('<cword>')) . '/j % <bar> lopen'<CR>
 
@@ -144,12 +147,16 @@ else
 endif
 
 " highlight space at the end of line
+function! WarningEOL()
+    if &ft == 'qf'
+        return
+    endif
+    syntax match whitespaceEOL /\s\+$/
+    syntax match ColorColumn /\%>80v.\+/
+endfunction
 highlight whitespaceEOL ctermbg=1 guibg=red
 highlight ColorColumn ctermbg=1 guibg=red
-autocmd BufNewFile,BufRead * syntax match whitespaceEOL /\s\+$/
-autocmd BufNewFile,BufRead * syntax match ColorColumn /\%>80v.\+/
-syntax match whitespaceEOL /\s\+$/
-syntax match ColorColumn /\%>80v.\+/
+autocmd BufNewFile,BufRead * call WarningEOL() 
 
 "d p u y
 
@@ -207,7 +214,6 @@ endfunction
 " Comments
 map  <leader>cc <C-C>
 map  <leader>cx <C-X>
-
 
 " Table
 function! TableMove(direction)
