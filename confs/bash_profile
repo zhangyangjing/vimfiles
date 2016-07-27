@@ -1,11 +1,12 @@
-#!bash
+#!/bin/bash
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
+# alias
+if [ `uname -s` = "Darwin" ]
+then
     alias ls='ls -G -G'
 else
     alias ls='ls -G --color'
 fi
-
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
@@ -22,6 +23,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# export
 export PS1="\u@\W\$ "
 export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx
