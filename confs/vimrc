@@ -151,12 +151,12 @@ function! WarningEOL()
     if &ft == 'qf'
         return
     endif
-    syntax match whitespaceEOL /\s\+$/
+    match whitespaceEOL /\s\+$/
     syntax match ColorColumn /\%>80v.\+/
 endfunction
 highlight whitespaceEOL ctermbg=1 guibg=red
 highlight ColorColumn ctermbg=1 guibg=red
-autocmd BufNewFile,BufRead * call WarningEOL() 
+autocmd bufwinenter * call WarningEOL()
 
 "d p u y
 
