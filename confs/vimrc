@@ -31,49 +31,6 @@ autocmd FileType c,ch,cpp,java setlocal cindent
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType c,ch,cpp,python set cc=80
 
-" os type
-if(has("win32") || has("win64") || has("win95") || has("win16"))
-	let g:iswindows = 1
-else
-	let g:iswindows = 0
-endif
-
-" vim type
-if has("gui_running")
-	let g:isGUI = 1
-else
-	let g:isGUI = 0
-endif
-
-if g:isGUI
-    set go=c
-end
-
-if g:isGUI && g:iswindows
-    let g:windowAlpha=255
-    noremap <silent><F9> :call SetAlpha("down")<CR>
-    noremap <silent><F10> :call SetAlpha("up")<CR>
-    nnoremap <silent><F11> :call libcallnr("f", "ToggleFullScreen", 0)<CR>
-    inoremap <silent><F11> <ESC>:call libcallnr("f", "ToggleFullScreen", 0)<CR>
-endif
-
-function! SetAlpha(alpha)
-    if 'up' == a:alpha
-        let g:windowAlpha += 10
-        if 255 < g:windowAlpha
-            let g:windowAlpha = 255
-        endif
-    elseif 'down' == a:alpha
-        let g:windowAlpha -= 10
-        if 0 > g:windowAlpha
-            let g:windowAlpha = 0
-        endif
-    endif
-
-    call libcallnr("f", "SetAlpha", g:windowAlpha)
-endfunction
-
-
 let g:mapleader=","
 nnoremap <leader>a ggVG
 nnoremap <leader>w :w<CR>
@@ -125,6 +82,12 @@ nnoremap <leader>p <C-I>
 nmap <leader>st 0
 nmap <leader>en $
 
+" Comments
+noremap  <silent><leader>cc :call CommentLine()<CR>
+vnoremap <silent><leader>cc :call RangeCommentLine()<CR>
+noremap  <silent><leader>cx :call UnCommentLine()<CR>
+vnoremap <silent><leader>cx :call RangeUnCommentLine()<CR>
+
 " htlf-auto paste mode
 nnoremap <leader>x :set paste<CR>i
 autocmd InsertLeave * :set nopaste
@@ -135,8 +98,42 @@ nnoremap <leader>fj :%!python -m json.tool<CR>
 " search show result in single window
 nmap <Leader>/ :exec 'lvimgrep /' . input('>', expand('<cword>')) . '/j % <bar> lopen'<CR>
 
+" os type
+function! GetRunningOS()
+  if (has("win32") || has("win64") || has("win95") || has("win16"))
+    return "win"
+  endif
+  if has("unix")
+    if system('uname')=~'Darwin'
+      return "mac"
+    else
+      return "linux"
+    endif
+  endif
+endfunction
+let g:ostype=GetRunningOS()
+
+" vim type
+if has("gui_running")
+	let g:isGUI = 1
+else
+	let g:isGUI = 0
+endif
+
+if g:isGUI
+    set go=c
+end
+
+if g:isGUI && g:ostype == "win"
+    let g:windowAlpha=255
+    noremap <silent><F9> :call SetAlpha("down")<CR>
+    noremap <silent><F10> :call SetAlpha("up")<CR>
+    nnoremap <silent><F11> :call libcallnr("f", "ToggleFullScreen", 0)<CR>
+    inoremap <silent><F11> <ESC>:call libcallnr("f", "ToggleFullScreen", 0)<CR>
+endif
+
 " auto load vimrc  config
-if g:iswindows == 1
+if g:ostype == "win"
     nnoremap <leader>ss :source $HOME/_vimrc<CR>
     autocmd! bufwritepost *vimrc :source $HOME/_vimrc
     nnoremap <leader>erc :new $HOME/_vimrc<cr>
@@ -145,6 +142,32 @@ else
     autocmd! bufwritepost *vimrc :source ~/.vimrc
     nnoremap <leader>erc :new ~/.vimrc<cr>
 endif
+
+" system clipboard
+if g:ostype == "mac"
+    map "+y :w !pbcopy<CR><CR>
+    map "+p :r !pbpaste<CR><CR>
+    vmap <C-x> :!pbcopy<cr>
+    vmap <C-c> :w !pbcopy<cr><cr>
+    nmap <C-v> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+    imap <C-v> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+endif
+
+function! SetAlpha(alpha)
+    if 'up' == a:alpha
+        let g:windowAlpha += 10
+        if 255 < g:windowAlpha
+            let g:windowAlpha = 255
+        endif
+    elseif 'down' == a:alpha
+        let g:windowAlpha -= 10
+        if 0 > g:windowAlpha
+            let g:windowAlpha = 0
+        endif
+    endif
+
+    call libcallnr("f", "SetAlpha", g:windowAlpha)
+endfunction
 
 " highlight space at the end of line
 function! WarningEOL()
@@ -182,7 +205,7 @@ nnoremap <leader>ta :Tlist<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " pydictionary
-if g:iswindows
+if g:ostype == "win"
     let g:pydiction_location = '$HOME\vimfiles\complete-dict'
 else
     let g:pydiction_location = '~/.vim/complete-dict'
@@ -210,10 +233,6 @@ function! AutoRun()
         exe '!node %'
     endif
 endfunction
-
-" Comments
-map  <leader>cc <C-C>
-map  <leader>cx <C-X>
 
 " Table
 function! TableMove(direction)
