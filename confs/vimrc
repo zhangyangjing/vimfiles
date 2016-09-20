@@ -171,10 +171,16 @@ endfunction
 
 " highlight space at the end of line
 function! WarningEOL()
-    if &ft == 'qf' || &ft == 'text' || &ft == 'markdown'
+    if &ft == 'qf'
         return
     endif
+
     match whitespaceEOL /\s\+$/
+
+    if &ft == 'text' || &ft == 'markdown'
+        return
+    endif
+
     syntax match ColorColumn /\%>80v.\+/
 endfunction
 highlight whitespaceEOL ctermbg=1 guibg=red
