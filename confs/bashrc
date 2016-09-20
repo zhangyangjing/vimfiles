@@ -80,6 +80,27 @@ function umountrouter {
     rmdir $ROUTER_MOUNT_PATH
 }
 
+# Pcduino NFS
+PCDUINO_IP_ADDRESS=192.168.1.97
+PCDUINO_MOUNT_PATH=$HOME/pcduino
+function mountpcduino {
+    if [ -e $PCDUINO_MOUNT_PATH ]
+    then
+        echo 'Pcduino already mounted'
+        return
+    fi
+    mkdir $PCDUINO_MOUNT_PATH
+    sudo mount -t nfs -o resvport,rw $PCDUINO_IP_ADDRESS:/home/zyj $PCDUINO_MOUNT_PATH
+}
+
+function umountpcduino {
+    if [ -e $PCDUINO_MOUNT_PATH ]
+    then
+        sudo umount $PCDUINO_MOUNT_PATH
+    fi
+    rmdir $PCDUINO_MOUNT_PATH
+}
+
 # man
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
