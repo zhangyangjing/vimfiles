@@ -25,16 +25,15 @@ fi
 
 # workspace
 WORKSPACE_IMAGE_PATH=$HOME/.workspace.dmg.sparseimage
+WORKSPACE_MOUNT_PATH=$HOME/workspace
 if [ -f $WORKSPACE_IMAGE_PATH ]
 then
     function mountworkspace {
-        hdiutil attach $WORKSPACE_IMAGE_PATH -mountpoint /Volumes/workspace;
-        ln -s /Volumes/workspace $HOME/workspace
+        hdiutil attach $WORKSPACE_IMAGE_PATH -mountpoint $WORKSPACE_MOUNT_PATH;
     }
 
     function umountworkspace {
-        hdiutil detach /Volumes/workspace
-        rm $HOME/workspace
+        hdiutil detach $WORKSPACE_MOUNT_PATH
     }
 fi
 
