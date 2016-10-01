@@ -31,6 +31,7 @@ set shell=bash\ --login
 autocmd FileType c,ch,cpp,java setlocal cindent
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType c,ch,cpp,python set cc=80
+autocmd FileType text,markdown set wrap
 
 let g:mapleader=","
 nnoremap <leader>a ggVG
