@@ -147,12 +147,9 @@ endif
 
 " system clipboard
 if g:ostype == "mac"
-    "map "+y :w !pbcopy<CR><CR>
-    "map "+p :r !pbpaste<CR><CR>
-    "vmap <C-x> :!pbcopy<cr>
-    vmap <C-y> :w !pbcopy<cr><cr>
-    nmap <C-p> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-    imap <C-p> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+    vmap <leader>y :w !pbcopy<cr><cr>
+    nmap <leader>p :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+    imap <leader>p <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 endif
 
 function! SetAlpha(alpha)
