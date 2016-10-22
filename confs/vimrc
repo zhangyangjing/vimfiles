@@ -247,17 +247,15 @@ function! TableMove(direction)
     if 'forward' == a:direction
         let tableIndex += 1
     else
-        let tableIndex -= 1
+        let tableIndex -= 2
     endif
 
     if tableIndex > tableCount
-        let tableIndex = 1
+        let tableIndex = 0
     endif
-    if tableIndex < 1
+    if tableIndex < 0
         let tableIndex = tableCount
     endif
-
-    let tableIndex -= 1
 
     execute 'tabm '.tableIndex
 endfunction
