@@ -3,6 +3,8 @@
 " Util
 "
 """"""""""""""""""
+" actionlist show all actions
+
 set nu    " show line number`
 
 let mapleader=","
@@ -35,7 +37,11 @@ nnoremap <leader>fc :action GotoClass<CR>
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fs :action GotoSymbol<CR>
 nnoremap <leader>ft :action GotoTest<CR>
-nnoremap <leader>fm :action ReformatCode<CR>
+nnoremap <leader>fm :action ReformatCode<CR>:action OptimizeImports<CR>
+nnoremap <leader>ss :action FileStructurePopup<CR>
+nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>dd :action Debug<CR>
+nnoremap <leader>rn :action RenameElement<CR>
 nnoremap <leader>vp :action ActivateProjectToolWindow<CR>
 nnoremap <leader>vs :action ActivateStructureToolWindow<CR>
 nnoremap <leader>vv :action Vcs.Show.Local.Changes<CR>
@@ -55,6 +61,6 @@ nnoremap <C-U> :action FindUsages<CR>
 nnoremap <C-S> :action FileStructurePopup<cr>
 nnoremap <C-T> :action TypeHierarchy<CR>
 nnoremap <C-D> :action QuickJavaDoc<CR>
-nnoremap <C-O> :action OverrideMethods<CR>
 nnoremap <C-I> :action QuickImplementations<CR>
+nnoremap <C-O> :action OverrideMethods<CR>
 nnoremap <C-F> :action JumpToLastWindow<CR>
