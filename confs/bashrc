@@ -20,6 +20,7 @@ ANDROID_SDK_PATH=$ANDROID_PATH/sdk
 ANDROID_NDK_PATH=$ANDROID_PATH/sdk/ndk-bundle
 if [ -e $ANDROID_SDK_PATH ]
 then
+    export ANDROID_HOME=$ANDROID_SDK_PATH
     export PATH="$ANDROID_SDK_PATH/tools:$PATH"
     export PATH="$ANDROID_SDK_PATH/platform-tools:$PATH"
 fi
