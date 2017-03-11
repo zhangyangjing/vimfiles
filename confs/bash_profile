@@ -41,16 +41,6 @@ then
     source $GIT_COMPLETION_PATH
 fi
 
-GIT_PROMPT_PATH=~/.vim/confs/scripts/git-prompt.sh
-if [ -f $GIT_PROMPT_PATH ]
-then
-    source $GIT_PROMPT_PATH
-
-    GREEN="$(tput setaf 2)"
-    RESET="$(tput sgr0)"
-    export PS1='\u@\W$(__git_ps1 "${GREEN}(%s)${RESET}")\$ '
-fi
-
 # source bashrc
 if [ -f ~/.bashrc ]
 then
