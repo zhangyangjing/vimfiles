@@ -101,22 +101,14 @@ nnoremap <leader>fj :%!python -m json.tool<CR>
 " search show result in single window
 nmap <Leader>/ :exec 'lvimgrep /' . input('>', expand('<cword>')) . '/j % <bar> lopen'<CR>
 
-" os type
-function! GetRunningOS()
-  if (has("win32") || has("win64") || has("win95") || has("win16"))
-    return "win"
-  endif
-  if has("unix")
-    if system('uname')=~'Darwin'
-      return "mac"
-    else
-      return "linux"
-    endif
-  endif
-endfunction
-let g:ostype=GetRunningOS()
+" detect os type [linux, darwin, win]
+if filereadable(expand("~/.vim_ext"))
+    source ~/.vim_ext
+endif
+if (!exists("g:ostype"))
+    let g:ostype="linux"
+endif
 
-" vim type
 if has("gui_running")
 	let g:isGUI = 1
 else
@@ -147,7 +139,7 @@ else
 endif
 
 " system clipboard
-if g:ostype == "mac"
+if g:ostype == "darwin"
     vmap <leader>y :w !pbcopy<cr><cr>
     nmap <leader>p :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
     imap <leader>p <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>

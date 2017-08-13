@@ -28,6 +28,7 @@ fi
 if [ -e $ANDROID_NDK_PATH ]
 then
     export PATH="$ANDROID_NDK_PATH:$PATH"
+    export PATH="$ANDROID_NDK_PATH/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64/bin:$PATH"
 fi
 
 # workspace
