@@ -28,3 +28,5 @@
 	autosetuprebase = always
 [push]
 	default = simple
+[http]
+	cookiefile = /Users/zyj/.gitcookies

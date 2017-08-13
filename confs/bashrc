@@ -47,6 +47,7 @@ fi
 # Nas NFS
 NAS_IP_ADDRESS=192.168.1.99
 NAS_MOUNT_PATH=$HOME/nas
+NAS_VOLUME2_MOUNT_PATH=$HOME/nas_volumn2
 function mountnas {
     if [ -e $NAS_MOUNT_PATH ]
     then
@@ -63,6 +64,24 @@ function umountnas {
         sudo umount $NAS_MOUNT_PATH
     fi
     rmdir $NAS_MOUNT_PATH
+}
+
+function mountnasvolume2 {
+    if [ -e $NAS_VOLUME2_MOUNT_PATH ]
+    then
+        echo 'Nas already mounted'
+        return
+    fi
+    mkdir $NAS_VOLUME2_MOUNT_PATH
+    sudo mount -t nfs -o resvport,ro $NAS_IP_ADDRESS:/volume2/volume2 $NAS_VOLUME2_MOUNT_PATH
+}
+
+function umountnasvolume2 {
+    if [ -e $NAS_VOLUME2_MOUNT_PATH ]
+    then
+        sudo umount $NAS_VOLUME2_MOUNT_PATH
+    fi
+    rmdir $NAS_VOLUME2_MOUNT_PATH
 }
 
 # Router NFS

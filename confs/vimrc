@@ -23,6 +23,7 @@ set matchtime=2
 set incsearch   " hilight hit word when type in search key work
 set hlsearch    " hilight all matched word when searching(after type enter)
 set nobackup
+set smartcase
 set nowrap
 set noswapfile
 set nocompatible

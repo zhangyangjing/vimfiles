@@ -3,7 +3,8 @@
 # alias
 if [ `uname -s` = "Darwin" ]
 then
-    alias ls='ls -G -G'
+    alias ls='ls -G --color'
+    #alias ls='ls -G -G'
 else
     alias ls='ls -G --color'
 fi
