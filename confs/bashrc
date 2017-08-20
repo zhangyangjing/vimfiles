@@ -163,3 +163,14 @@ function src_count {
 
     echo $total|bc
 }
+
+# build latex
+function blatex {
+    TDIR=`mktemp -d --tmpdir=/tmp`
+    cp $1 ${TDIR}
+    cd ${TDIR}
+    xelatex $1
+    cd -
+    cp ${TDIR}/*.pdf ./
+    rm -r ${TDIR}
+}

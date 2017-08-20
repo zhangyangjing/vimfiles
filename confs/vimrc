@@ -229,6 +229,8 @@ function! AutoRun()
         exe "!bash %"
     elseif 'javascript' == &filetype
         exe '!node %'
+    elseif 'tex' == &filetype
+        exe '!blatex % && open %:r.pdf'
     endif
 endfunction
 
