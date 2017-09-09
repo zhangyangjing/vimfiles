@@ -3,6 +3,7 @@
 	autocrlf = input
 	editor = vim
     ignorecase = false
+	excludesfile = ~/.gitignore
 [user]
 	email = zhangyangjing@gmail.com
 	name = Yangjing Zhang
