@@ -231,6 +231,8 @@ function! AutoRun()
         exe '!node %'
     elseif 'tex' == &filetype
         exe '!blatex % && open %:r.pdf'
+    elseif 'lua' == &filetype
+        exe '!lua %'
     endif
 endfunction
 
