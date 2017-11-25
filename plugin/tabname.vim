@@ -66,8 +66,8 @@ function! TabCaptionLineFunction()
             endif
         endfor
 
-        let caption = '['.(i+1).modified_part.']'
-        let line .= '%#String#'.caption
+        let caption = ''.(i+1).modified_part.''
+        let line .= '%#Number#'.caption
         " select the highlighting
         if i + 1 == tabpagenr()
             let line .= '%#TabLineSel#'
@@ -94,7 +94,7 @@ function! TabCaptionLineFunction()
 endfunction
 
 function! TabGuiCaptionLabel()
-    let caption = '['
+    let caption = ''
     let tab_number = v:lnum
     let bufnrlist = tabpagebuflist(tab_number)
     let tab_name = gettabwinvar(tab_number, 1, 'tab_win_name') 
@@ -107,8 +107,6 @@ function! TabGuiCaptionLabel()
             break
         endif
     endfor
-
-    let caption .= '] '
 
     let winnr = tabpagewinnr(tab_number)
 	let buf_name = bufname(bufnrlist[winnr - 1])
