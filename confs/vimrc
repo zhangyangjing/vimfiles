@@ -202,6 +202,9 @@ nnoremap <leader>ta :Tlist<CR>
 " TagBar
 nmap <F8> :TagbarToggle<CR>
 
+" TabName
+nmap  <leader>tn :TName 
+
 " pydictionary
 if g:ostype == "win"
     let g:pydiction_location = '$HOME\vimfiles\complete-dict'
