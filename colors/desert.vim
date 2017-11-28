@@ -32,7 +32,9 @@ hi LineNr	        ctermfg=66  ctermbg=237 guibg=grey30  guifg=#3a69b7
 hi Title	        cterm=none ctermfg=124  gui=none guifg=indianred
 hi TabLineFill      cterm=none ctermbg=244  gui=none guibg=#c2bfa5
 hi TabLine          cterm=none ctermfg=247  ctermbg=243 gui=none
-hi TabLineSel       cterm=none ctermfg=250  ctermbg=237 gui=none
+hi TabLineNum       cterm=none ctermfg=124  ctermbg=243 gui=none
+hi TabLineSel       cterm=none ctermfg=250  ctermbg=235 gui=none
+hi TabLineSelNum    cterm=none ctermfg=124  ctermbg=235 gui=none
 
 hi ErrorMsg	        cterm=bold ctermfg=7 ctermbg=1
 hi ModeMsg	        guifg=goldenrod

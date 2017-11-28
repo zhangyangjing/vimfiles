@@ -67,16 +67,13 @@ function! TabCaptionLineFunction()
         endfor
 
         let caption = ''.(i+1).modified_part.''
-        let line .= '%#Number#'.caption
         " select the highlighting
         if i + 1 == tabpagenr()
+            let line .= '%#TabLineSelNum# '.caption
             let line .= '%#TabLineSel#'
         else
-            if i % 2 == 0
-                let line .= '%#TabLine#'
-            else
-                let line .= '%#TabLine#'
-            endif
+            let line .= '%#TabLineNum# '.caption
+            let line .= '%#TabLine#'
         endif
 
         let line .= '%' . (i + 1) . 'T'
@@ -85,10 +82,6 @@ function! TabCaptionLineFunction()
     endfor
 
     let line .= '%#TabLineFill#%T'
-
-    if tabpagenr('$') > 1
-        let line .= '%=%#TabLine#%999Xclose'
-    endif
 
     return line
 endfunction
@@ -125,7 +118,7 @@ function! s:TabWinEnter()
         call setwinvar(winnr(), "tab_win_name", t:tab_name)
     endif
 endfunction
-    
+
 augroup TabLabelNameAU
     au!
     au WinEnter * call s:TabWinEnter()
