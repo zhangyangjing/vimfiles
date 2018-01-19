@@ -116,7 +116,7 @@ function mountpcduino {
         return
     fi
     mkdir $PCDUINO_MOUNT_PATH
-    sudo mount -t nfs -o resvport,rw $PCDUINO_IP_ADDRESS:/home/zyj/hdd/samba $PCDUINO_MOUNT_PATH
+    sudo mount -t nfs -o resvport,rw $PCDUINO_IP_ADDRESS:/home/zyj/hdd $PCDUINO_MOUNT_PATH
 }
 
 function umountpcduino {
