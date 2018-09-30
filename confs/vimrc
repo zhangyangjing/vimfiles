@@ -40,6 +40,12 @@ nnoremap <leader>w :w<CR>
 inoremap <leader>w <ESC>:w<CR>
 nnoremap <leader>q :q<CR>
 
+" move cursor
+execute "set <M-h>=\eh"
+execute "set <M-l>=\el"
+noremap <M-h> ^
+noremap <M-l> $
+
 " window switch
 nnoremap <leader>k <C-W>k
 nnoremap <leader>j <C-W>j
