@@ -25,11 +25,11 @@ then
     export PATH="$ANDROID_SDK_PATH/platform-tools:$PATH"
 fi
 
-if [ -e $ANDROID_NDK_PATH ]
-then
-    export PATH="$ANDROID_NDK_PATH:$PATH"
-    export PATH="$ANDROID_NDK_PATH/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64/bin:$PATH"
-fi
+#if [ -e $ANDROID_NDK_PATH ]
+#then
+    #export PATH="$ANDROID_NDK_PATH:$PATH"
+    #export PATH="$ANDROID_NDK_PATH/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64/bin:$PATH"
+#fi
 
 # workspace
 WORKSPACE_IMAGE_PATH=$HOME/.workspace.dmg.sparseimage
@@ -74,7 +74,7 @@ function mountnasvolume2 {
         return
     fi
     mkdir $NAS_VOLUME2_MOUNT_PATH
-    sudo mount -t nfs -o resvport,ro $NAS_IP_ADDRESS:/volume2/volume2 $NAS_VOLUME2_MOUNT_PATH
+    sudo mount -t nfs -o resvport,rw $NAS_IP_ADDRESS:/volume2/volume2 $NAS_VOLUME2_MOUNT_PATH
 }
 
 function umountnasvolume2 {
@@ -107,24 +107,41 @@ function umountrouter {
 }
 
 # Pcduino NFS
-PCDUINO_IP_ADDRESS=192.168.1.97
-PCDUINO_MOUNT_PATH=$HOME/pcduino
-function mountpcduino {
-    if [ -e $PCDUINO_MOUNT_PATH ]
+UBUNTU_IP_ADDRESS=ubuntu
+UBUNTU_STORAGE_MOUNT_PATH=$HOME/ubuntu_storage
+function mountubuntu_storage {
+    if [ -e $UBUNTU_STORAGE_MOUNT_PATH ]
     then
-        echo 'Pcduino already mounted'
+        echo 'ubuntu_storage already mounted'
         return
     fi
-    mkdir $PCDUINO_MOUNT_PATH
-    sudo mount -t nfs -o resvport,rw $PCDUINO_IP_ADDRESS:/home/zyj/hdd $PCDUINO_MOUNT_PATH
+    mkdir $UBUNTU_STORAGE_MOUNT_PATH
+    sudo mount -t nfs -o resvport,rw,nolocks $UBUNTU_IP_ADDRESS:/mnt/storage $UBUNTU_STORAGE_MOUNT_PATH
+}
+function umountubuntu_storage {
+    if [ -e $UBUNTU_STORAGE_MOUNT_PATH ]
+    then
+        sudo umount $UBUNTU_STORAGE_MOUNT_PATH
+    fi
+    rmdir $UBUNTU_STORAGE_MOUNT_PATH
 }
 
-function umountpcduino {
-    if [ -e $PCDUINO_MOUNT_PATH ]
+UBUNTU_BACKUP_MOUNT_PATH=$HOME/ubuntu_backup
+function mountubuntu_backup {
+    if [ -e $UBUNTU_BACKUP_MOUNT_PATH ]
     then
-        sudo umount $PCDUINO_MOUNT_PATH
+        echo 'ubuntu_backup already mounted'
+        return
     fi
-    rmdir $PCDUINO_MOUNT_PATH
+    mkdir $UBUNTU_BACKUP_MOUNT_PATH
+    sudo mount -t nfs -o resvport,rw,nolocks $UBUNTU_IP_ADDRESS:/mnt/backup $UBUNTU_BACKUP_MOUNT_PATH
+}
+function umountubuntu_backup {
+    if [ -e $UBUNTU_BACKUP_MOUNT_PATH ]
+    then
+        sudo umount $UBUNTU_BACKUP_MOUNT_PATH
+    fi
+    rmdir $UBUNTU_BACKUP_MOUNT_PATH
 }
 
 # man
