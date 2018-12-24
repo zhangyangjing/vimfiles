@@ -26,7 +26,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # export
-export PS1="\u@\W\$ "
+export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$ "
 export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx
 export PYTHONDONTWRITEBYTECODE=1
