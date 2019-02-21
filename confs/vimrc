@@ -97,9 +97,15 @@ vnoremap <silent><leader>cc :call RangeCommentLine()<CR>
 noremap  <silent><leader>cx :call UnCommentLine()<CR>
 vnoremap <silent><leader>cx :call RangeUnCommentLine()<CR>
 
-" htlf-auto paste mode
-nnoremap <leader>x :set paste<CR>i
-autocmd InsertLeave * :set nopaste
+" auto paste mode
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+function! XTermPasteBegin()
+    set pastetoggle=<Esc>[201~
+    set paste
+    return ""
+endfunction
 
 " format json
 nnoremap <leader>fj :%!python -m json.tool<CR>
