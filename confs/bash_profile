@@ -42,6 +42,13 @@ then
     source $GIT_COMPLETION_PATH
 fi
 
+# source ssh scripts
+SSH_COMPLETION_PATH=~/.vim/confs/scripts/ssh-completion.bash
+if [ -f $SSH_COMPLETION_PATH ]
+then
+    source $SSH_COMPLETION_PATH
+fi
+
 # source ext
 if [ -f ~/.bash_ext ]
 then
