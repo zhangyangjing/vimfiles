@@ -64,3 +64,6 @@ nnoremap <C-D> :action QuickJavaDoc<CR>
 nnoremap <C-I> :action QuickImplementations<CR>
 nnoremap <C-O> :action OverrideMethods<CR>
 nnoremap <C-F> :action JumpToLastWindow<CR>
+
+inoremap <C-J> <ESC>:action SmartTypeCompletion<CR>
+noremap <C-P> :action ParameterInfo<CR>

@@ -181,7 +181,7 @@ function! WarningEOL()
 
     match whitespaceEOL /\s\+$/
 
-    if &ft == 'text' || &ft == 'markdown'
+    if &ft == 'text' || &ft == 'markdown' || &ft == 'log'
         return
     endif
 
