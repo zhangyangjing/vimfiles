@@ -8,7 +8,8 @@
 set nu    " show line number`
 
 let mapleader=","
-nnoremap <leader>a ggVG
+set easymotion
+nnoremap <leader>a :action $SelectAll<CR>
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <ESC>:w<CR>
 nnoremap <leader>q :q<CR>

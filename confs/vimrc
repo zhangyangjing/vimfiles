@@ -113,12 +113,16 @@ nnoremap <leader>fj :%!python -m json.tool<CR>
 " search show result in single window
 nmap <Leader>/ :exec 'lvimgrep /' . input('>', expand('<cword>')) . '/j % <bar> lopen'<CR>
 
-" detect os type [linux, darwin, win]
 if filereadable(expand("~/.vim_ext"))
     source ~/.vim_ext
 endif
-if (!exists("g:ostype"))
-    let g:ostype="linux"
+
+if !exists("g:ostype")
+    if has("win64") || has("win32") || has("win16")
+        let g:ostype = "Win"
+    else
+        let g:ostype = substitute(system('uname'), '\n', '', '')
+    endif
 endif
 
 if has("gui_running")
@@ -131,7 +135,7 @@ if g:isGUI
     set go=c
 end
 
-if g:isGUI && g:ostype == "win"
+if g:isGUI && g:ostype == "Win"
     let g:windowAlpha=255
     noremap <silent><F9> :call SetAlpha("down")<CR>
     noremap <silent><F10> :call SetAlpha("up")<CR>
@@ -140,7 +144,7 @@ if g:isGUI && g:ostype == "win"
 endif
 
 " auto load vimrc  config
-if g:ostype == "win"
+if g:ostype == "Win"
     nnoremap <leader>ss :source $HOME/_vimrc<CR>
     autocmd! bufwritepost *vimrc :source $HOME/_vimrc
     nnoremap <leader>erc :new $HOME/_vimrc<cr>
@@ -151,7 +155,7 @@ else
 endif
 
 " system clipboard
-if g:ostype == "darwin"
+if g:ostype == "Darwin"
     vmap <leader>y :w !pbcopy<cr><cr>
     nmap <leader>p :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
     imap <leader>p <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
@@ -200,7 +204,7 @@ autocmd bufwinenter * call WarningEOL()
 """"""""""""""""""
 " NERDTree
 nnoremap <leader>tr :NERDTree<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$', '\.d\.ts$', '\.d\.ts\.map$', '\.js$']
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.d\.ts$', '\.d\.ts\.map$']
 let NERDTreeDirArrows = 0
 
 " Tag List
@@ -218,7 +222,7 @@ nmap <F8> :TagbarToggle<CR>
 nmap  <leader>tn :TName 
 
 " pydictionary
-if g:ostype == "win"
+if g:ostype == "Win"
     let g:pydiction_location = '$HOME\vimfiles\complete-dict'
 else
     let g:pydiction_location = '~/.vim/complete-dict'
