@@ -8,7 +8,6 @@
 set nu    " show line number`
 
 let mapleader=","
-set easymotion
 nnoremap <leader>a :action $SelectAll<CR>
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <ESC>:w<CR>
@@ -27,6 +26,9 @@ nnoremap <C-K> <C-B>
 " line move
 nmap <leader>st 0
 nmap <leader>en $
+
+" ace jump
+nmap <leader><leader>f :action AceAction<CR>
 
 " idea actions
 nnoremap <leader>g :action GotoDeclaration<CR>
