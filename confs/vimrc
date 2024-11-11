@@ -109,6 +109,7 @@ endfunction
 
 " format json
 nnoremap <leader>fj :%!python -m json.tool<CR>
+nnoremap <leader>fx :%!xmllint --format -<CR>
 
 " search show result in single window
 nmap <Leader>/ :exec 'lvimgrep /' . input('>', expand('<cword>')) . '/j % <bar> lopen'<CR>
@@ -294,3 +295,5 @@ endfunction
 " nerd_tree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+autocmd FileType typescript set regexpengine=2

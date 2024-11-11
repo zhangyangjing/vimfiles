@@ -31,5 +31,5 @@ if [ ! -d ~/.ssh/authorized_keys ]; then
     chmod 600 ~/.ssh/authorized_keys
 fi
 if [ `cat ~/.ssh/authorized_keys | grep zhangyangjing@gmail.com | wc -l` -eq 0 ]; then
-    echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjqo1BsM/UfDg35y6nydEbjVF/Y0LflBjUjzAZphi/u00wX9PloX/p6ahc57kZLgXLVVllfcBOT4nvMdoMcf1LfPt9T8Gn97lvtoxBJpat5q9W8lZGl1g+/g9ZpTe4AfapwJlZJIJ64NSuCdRPh0SanDQM5JXntOWMk0Xz8JLdHfNEjirNdn2d/6/qsTNQguq7jWUQZQIj2QIw79HoqFvsry3bMfYA/kobYN17Sgr27nMD7f4+yZm/0OnscmCWP9+m6QvbEbQR8rqZ3daIg+A7p+aa7zFedRaHE94CdpOPKadq76eF/xxrA9IF9PH7GSMa/zElMJ/onDYcLKDAmird zhangyangjing@gmail.com >> ~/.ssh/authorized_keys
+    echo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNUy4RgUzWcRfdWx8iW61HO4pA6KmT4c4L1fx+2sbEK zhangyangjing@gmail.com >> ~/.ssh/authorized_keys
 fi
